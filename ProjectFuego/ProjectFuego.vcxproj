@@ -155,6 +155,7 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Game_State.h" />
+    <ClInclude Include="GlobalConsts.h" />
     <ClInclude Include="Playing_State.h" />
     <ClInclude Include="Random.h" />
     <ClInclude Include="ResourceHolder.h" />
@@ -172,7 +173,6 @@
     <ClCompile Include="ProjectFuego.cpp" />
     <ClCompile Include="Random.cpp" />
     <ClCompile Include="ResourceHolder.cpp" />
-    <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

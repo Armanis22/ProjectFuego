@@ -5,7 +5,6 @@
 Game::Game()
 {
 	PushState(std::make_unique<State::Playing_State>(*this));
-	//music.openFromFile("Assets\Music\old_city_theme.ogg");
 }
 
 
@@ -30,6 +29,7 @@ void Game::Draw(sf::RenderWindow * window)
 
 void Game::AddObject(std::shared_ptr<GameObject> object)
 {
+	m_gameObjects.push_back(object);
 }
 
 void Game::PushState(std::unique_ptr<State::Game_State> state)
@@ -46,9 +46,4 @@ void Game::ChangeState(std::unique_ptr<State::Game_State> state)
 {
 	PopState();
 	PushState(std::move(state));
-}
-
-const ResourceHolder & Game::getResources() const
-{
-	return m_assets;
 }

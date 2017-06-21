@@ -25,6 +25,12 @@
     <Filter Include="Source Files\ResourceManagement">
       <UniqueIdentifier>{0fb156e2-f47b-4352-9835-eec267b347e9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\GameObjects">
+      <UniqueIdentifier>{81445647-2d70-4d87-8d2e-d268a2c9ec0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObjects">
+      <UniqueIdentifier>{ce64d097-07ac-4b15-a5ef-20d33317680f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -37,9 +43,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Random.h">
@@ -66,6 +69,12 @@
     <ClInclude Include="FontManager.h">
       <Filter>Header Files\ResourceManagement</Filter>
     </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Header Files\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalConsts.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -77,9 +86,6 @@
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Random.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -89,11 +95,11 @@
     <ClCompile Include="Game_State.cpp">
       <Filter>Source Files\GameStates</Filter>
     </ClCompile>
-    <ClCompile Include="ResourceManager.cpp">
-      <Filter>Source Files\ResourceManagement</Filter>
-    </ClCompile>
     <ClCompile Include="ResourceHolder.cpp">
       <Filter>Source Files\ResourceManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Source Files\GameObjects</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

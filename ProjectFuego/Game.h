@@ -27,16 +27,10 @@ public:
 
 	void ChangeState(std::unique_ptr<State::Game_State> state);
 
-	const ResourceHolder& getResources() const;
-
 
 private:
 	std::vector<std::shared_ptr<GameObject>> m_gameObjects;
 	std::stack<std::unique_ptr<State::Game_State>> m_states;
-
-	ResourceHolder m_assets;
-
-	
 	
 };
 

@@ -7,12 +7,17 @@
 #include <ctime>
 #include "Game.h"
 #include "Random.h"
+#include "GlobalConsts.h"
 
 bool fullscreen = false;
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(1200, 720), "Project Fuego", sf::Style::Titlebar);
+	sf::RenderWindow window(sf::VideoMode(SCREENWIDTH, SCREENHEIGHT), "Project Fuego", sf::Style::Titlebar);
 	Game game;
+
+	game.AddObject(std::make_shared<GameObject>(game,sf::Vector2f(300,300)));
+
+	game.AddObject(std::make_shared<GameObject>(game, sf::Vector2f(200, 200)));
 
 	sf::Clock clock;
 	Random::init();
@@ -30,7 +35,7 @@ int main()
 				{
 					window.close();
 					fullscreen = !fullscreen;
-					window.create(fullscreen ? sf::VideoMode(1920, 1080) : sf::VideoMode(1280, 720), "Project Fuego", fullscreen ? sf::Style::Fullscreen : sf::Style::Titlebar);
+					window.create(fullscreen ? sf::VideoMode(FULLSCREENWIDTH, FULLSCREENHEIGHT) : sf::VideoMode(SCREENWIDTH, SCREENHEIGHT), "Project Fuego", fullscreen ? sf::Style::Fullscreen : sf::Style::Titlebar);
 				}
 
 				if (event.key.code == sf::Keyboard::Escape)
