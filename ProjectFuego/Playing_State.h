@@ -14,7 +14,9 @@ namespace State
 
 	private:
 		
+		// temp shit for testing
 		sf::RectangleShape shape;
+		Animation animation;
 
 	};
 

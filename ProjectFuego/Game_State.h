@@ -2,6 +2,8 @@
 #include <SFML\Graphics.hpp>
 #include <SFML\Audio.hpp>
 #include "ResourceHolder.h"
+#include "Animation.h"
+#include "GlobalConsts.h"
 
 
 class Game;

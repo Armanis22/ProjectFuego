@@ -15,9 +15,7 @@ int main()
 	sf::RenderWindow window(sf::VideoMode(SCREENWIDTH, SCREENHEIGHT), "Project Fuego", sf::Style::Titlebar);
 	Game game;
 
-	game.AddObject(std::make_shared<GameObject>(game,sf::Vector2f(300,300)));
-
-	game.AddObject(std::make_shared<GameObject>(game, sf::Vector2f(200, 200)));
+	game.AddObject(std::make_shared<GameObject>(game,sf::Vector2f(800,800)));
 
 	sf::Clock clock;
 	Random::init();
