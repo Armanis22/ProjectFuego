@@ -8,6 +8,7 @@
 #include "Game.h"
 #include "Random.h"
 #include "GlobalConsts.h"
+#include "Player.h"
 
 bool fullscreen = false;
 int main()
@@ -15,10 +16,11 @@ int main()
 	sf::RenderWindow window(sf::VideoMode(SCREENWIDTH, SCREENHEIGHT), "Project Fuego", sf::Style::Titlebar);
 	Game game;
 
-	game.AddObject(std::make_shared<GameObject>(game,sf::Vector2f(800,800)));
 
 	sf::Clock clock;
 	Random::init();
+
+	
 
 	while (window.isOpen())								//--------------------- Start of game loop
 	{

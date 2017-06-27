@@ -3,21 +3,34 @@
 #include "SFML\Graphics.hpp"
 #include "Game.h"
 
+enum class FacingDirection
+{
+	UP = 1,
+	LEFT,
+	DOWN,
+	RIGHT
+};
+
+enum class CurrentAction
+{
+	CASTING = 6,
+	THRUSTING = 7,
+	WALKING = 8,
+	SLASHING = 5,
+	SHOOTING = 12,
+	DYING = 5
+};
+
+
 class GameObject
 {
 public:
-	GameObject(Game& game, sf::Vector2f pos);
-	~GameObject();
+	GameObject(sf::Vector2f pos);
 
 	void Draw(sf::RenderWindow* window);
-	void Update(float dt);
+	virtual void Update(float dt);
 
 protected:
 	sf::RectangleShape m_sprite;
-	sf::Texture m_texture;
-
-	std::unique_ptr<Game> m_p_game;
-
-	
 };
 

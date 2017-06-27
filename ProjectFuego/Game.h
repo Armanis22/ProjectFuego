@@ -8,6 +8,7 @@
 #include "Game_State.h"
 #include "Playing_State.h"
 #include "GameObject.h"
+
 #include "ResourceHolder.h"
 
 
@@ -17,7 +18,7 @@ class Game
 {
 public:
 	Game();
-	~Game();
+	
 	void Update(float dt);
 	void Draw(sf::RenderWindow* window);
 	void AddObject(std::shared_ptr<GameObject> object);
