@@ -1,7 +1,8 @@
 #pragma once
 
 #include "SFML\Graphics.hpp"
-#include "Game.h"
+#include "InputHolder.h"
+#include "ResourceHolder.h"
 
 enum class FacingDirection
 {
@@ -11,7 +12,17 @@ enum class FacingDirection
 	RIGHT
 };
 
-enum class CurrentAction
+enum class ActionRow
+{
+	CASTING = 0,
+	THRUSTING = 4,
+	WALKING = 8,
+	SLASHING = 12,
+	SHOOTING = 16,
+	DYING = 20
+};
+
+enum class ActionColumns
 {
 	CASTING = 6,
 	THRUSTING = 7,

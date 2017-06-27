@@ -9,7 +9,7 @@ namespace State
 		// testing resource stuff. temp
 		music.openFromFile("Assets/Music/old_city_theme.ogg");
 		music.setVolume(100);
-		//music.play();
+		music.play();
 		music.setLoop(true);
 		
 		shape.setTexture(&ResourceHolder::Instance().getTexture(TextureName::CHARACTERONE));

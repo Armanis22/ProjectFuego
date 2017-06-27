@@ -157,6 +157,7 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Game_State.h" />
     <ClInclude Include="GlobalConsts.h" />
+    <ClInclude Include="InputHolder.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Playing_State.h" />
     <ClInclude Include="Random.h" />
@@ -172,6 +173,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Game_State.cpp" />
+    <ClCompile Include="InputHolder.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Playing_State.cpp" />
     <ClCompile Include="ProjectFuego.cpp" />

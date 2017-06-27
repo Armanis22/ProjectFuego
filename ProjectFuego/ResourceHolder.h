@@ -9,9 +9,9 @@ struct ResourceHolder
 public:
 	static const ResourceHolder& Instance();
 
-	const sf::Texture&		getTexture(TextureName	name) const;
-	const sf::SoundBuffer&	getSoundBuffer(SoundName		name) const;
-	const sf::Font&			getFont(FontName		name) const;
+	const sf::Texture&		getTexture		(TextureName name)	const;
+	const sf::SoundBuffer&	getSoundBuffer	(SoundName name)	const;
+	const sf::Font&			getFont			(FontName name)		const;
 
 private:
 	TextureManager	textures;

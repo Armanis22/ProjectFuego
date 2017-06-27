@@ -17,6 +17,7 @@ void Player::Update(float dt)
 {
 
 	Input();
+
 }
 
 void Player::Input()

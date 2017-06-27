@@ -9,6 +9,7 @@
 #include "Random.h"
 #include "GlobalConsts.h"
 #include "Player.h"
+#include "InputHolder.h"
 
 bool fullscreen = false;
 int main()
@@ -20,7 +21,7 @@ int main()
 	sf::Clock clock;
 	Random::init();
 
-	
+	window.setKeyRepeatEnabled(true);
 
 	while (window.isOpen())								//--------------------- Start of game loop
 	{
@@ -43,6 +44,10 @@ int main()
 					window.close();
 				}
 			}
+
+			InputManager::Instance().StoreKeyPressed(event);
+			InputManager::Instance().GetKeysPressed(1);
+
 			if (event.type == sf::Event::Closed)
 				window.close();
 		}
