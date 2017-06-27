@@ -24,15 +24,21 @@ void InputManager::StoreKeyPressed(sf::Event& event)
 		}
 	}
 }
-void InputManager::GetKeysPressed(int index) const
+
+const std::unordered_map<int, bool>& InputManager::GetKeysPressed() const
 {
-	std::cout << "Keys pressed ";
-	for (auto& keyValue : keys)
-	{
-		std::cout << keyValue.first << " ";
-	}
-	std::cout << std::endl;
+	return keys;
 }
+
+//void InputManager::GetKeysPressed(int index) const
+//{
+//	printf("Keys pressed ");
+//	for (auto& keyValue : keys)
+//	{
+//		printf("%d ",keyValue.first);
+//	}
+//	printf("\n");
+//}
 
  const size_t InputManager::GetNumberOfKeys() const
  {

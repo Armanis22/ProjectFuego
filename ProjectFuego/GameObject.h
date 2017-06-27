@@ -3,10 +3,11 @@
 #include "SFML\Graphics.hpp"
 #include "InputHolder.h"
 #include "ResourceHolder.h"
+#include "GlobalConsts.h"
 
 enum class FacingDirection
 {
-	UP = 1,
+	UP,
 	LEFT,
 	DOWN,
 	RIGHT
@@ -43,5 +44,8 @@ public:
 
 protected:
 	sf::RectangleShape m_sprite;
+
+	FacingDirection m_facingDirection;
+	ActionRow m_currentAction;
 };
 

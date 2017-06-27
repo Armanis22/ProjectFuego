@@ -21,8 +21,6 @@ int main()
 	sf::Clock clock;
 	Random::init();
 
-	window.setKeyRepeatEnabled(true);
-
 	while (window.isOpen())								//--------------------- Start of game loop
 	{
 		sf::Time dt = clock.restart();
@@ -46,7 +44,8 @@ int main()
 			}
 
 			InputManager::Instance().StoreKeyPressed(event);
-			InputManager::Instance().GetKeysPressed(1);
+			//InputManager::Instance().GetKeysPressed();
+			
 
 			if (event.type == sf::Event::Closed)
 				window.close();
