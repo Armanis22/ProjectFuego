@@ -1,7 +1,8 @@
 #pragma once
 #include <memory>
 
-#include "CharacterObject.h"
+class CharacterObject;
+
 
 class ObjectState
 {

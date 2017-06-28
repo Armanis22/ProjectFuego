@@ -3,10 +3,9 @@
 
 
 Player::Player(sf::Vector2f pos) :
-	CharacterObject::CharacterObject(pos),
-	m_StateMachine(std::make_unique<ObjectStateMachine>(*this))
+	CharacterObject::CharacterObject(pos)
 {
-
+	m_StateMachine = std::make_unique<ObjectStateMachine>(*this);
 	m_sprite.setTexture(&ResourceHolder::Instance().getTexture(TextureName::CHARACTERONE));
 	m_sprite.setPosition(pos);
 

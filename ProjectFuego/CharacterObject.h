@@ -1,6 +1,6 @@
 #pragma once
 #include "GameObject.h"
-
+#include "ObjectStateMachine.h"
 
 enum class FacingDirection
 {
@@ -42,8 +42,12 @@ public:
 	void			SetFacingDirection(FacingDirection dir) { m_facingDirection = dir; }
 
 	virtual Animation& GetAnimation()	{ return m_animation; }
+	std::unique_ptr<ObjectStateMachine>& GetFSM() { return m_StateMachine; }
+
 
 protected:
+
+	std::unique_ptr<ObjectStateMachine> m_StateMachine;
 	Animation m_animation;
 
 	FacingDirection m_facingDirection;
