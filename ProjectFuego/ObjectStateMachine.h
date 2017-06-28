@@ -6,12 +6,12 @@
 class ObjectStateMachine
 {
 private:
-	GameObject& m_Owner;
+	CharacterObject& m_Owner;
 	std::stack<std::unique_ptr<ObjectState>> m_stateStack;
 
 public:
 
-	ObjectStateMachine (GameObject& owner) :
+	ObjectStateMachine (CharacterObject& owner) :
 		m_Owner(owner)
 	{}
 

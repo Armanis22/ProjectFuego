@@ -3,7 +3,7 @@
 
 
 Player::Player(sf::Vector2f pos) :
-	GameObject::GameObject(pos),
+	CharacterObject::CharacterObject(pos),
 	m_StateMachine(std::make_unique<ObjectStateMachine>(*this))
 {
 

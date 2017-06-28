@@ -9,10 +9,10 @@ class StandingState : public ObjectState
 public:
 	static std::unique_ptr<StandingState> Instance();
 
-	virtual void Enter	(GameObject& owner);
-	virtual void Input	(GameObject& owner);
-	virtual void Update	(GameObject& owner, float dt);
-	virtual void Exit	(GameObject& owner);
+	virtual void Enter	(CharacterObject& owner);
+	virtual void Input	(CharacterObject& owner);
+	virtual void Update	(CharacterObject& owner, float dt);
+	virtual void Exit	(CharacterObject& owner);
 };
 
 class WalkingState : public ObjectState
@@ -20,8 +20,8 @@ class WalkingState : public ObjectState
 public:
 	static std::unique_ptr<WalkingState> Instance();
 
-	virtual void Enter	(GameObject& owner);
-	virtual void Input	(GameObject& owner);
-	virtual void Update	(GameObject& owner, float dt);
-	virtual void Exit	(GameObject& owner);
+	virtual void Enter	(CharacterObject& owner);
+	virtual void Input	(CharacterObject& owner);
+	virtual void Update	(CharacterObject& owner, float dt);
+	virtual void Exit	(CharacterObject& owner);
 };

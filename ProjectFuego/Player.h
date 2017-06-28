@@ -1,11 +1,11 @@
 #pragma once
-#include "GameObject.h"
+#include "CharacterObject.h"
 #include "ObjectStateMachine.h"
 #include "PlayerOwnedStates.h"
 
 
 class Player :
-	public GameObject
+	public CharacterObject
 {
 public:
 	Player(sf::Vector2f pos);
