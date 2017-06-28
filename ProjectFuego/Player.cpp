@@ -3,8 +3,10 @@
 
 
 Player::Player(sf::Vector2f pos) :
-	GameObject::GameObject(pos)
+	GameObject::GameObject(pos),
+	m_StateMachine(std::make_unique<ObjectStateMachine>(*this))
 {
+
 	m_sprite.setTexture(&ResourceHolder::Instance().getTexture(TextureName::CHARACTERONE));
 	m_sprite.setPosition(pos);
 
@@ -14,6 +16,7 @@ Player::Player(sf::Vector2f pos) :
 
 	m_facingDirection = FacingDirection::DOWN;
 	m_currentAction = ActionRow::WALKING;
+	m_StateMachine->PushState(StandingState::Instance());
 }
 
 void Player::Update(float dt)
@@ -23,31 +26,12 @@ void Player::Update(float dt)
 	m_sprite.setTextureRect(sf::IntRect(SPRITEDIMENSION * 4 /*static_cast<int>(m_currentAction)*/, 
 										SPRITEDIMENSION * static_cast<int>(m_facingDirection),
 										SPRITEDIMENSION, SPRITEDIMENSION));
-
+	GetFSM()->Update(dt);
 
 }
 
 void Player::Input()
 {
-	for (auto& keyValue : InputManager::Instance().GetKeysPressed())
-	{
-		switch (keyValue.first)
-		{
-		case sf::Keyboard::A:
-			m_facingDirection = FacingDirection::LEFT;
-			break;
-		case sf::Keyboard::D:
-			m_facingDirection = FacingDirection::RIGHT;
-			break;
-		case sf::Keyboard::W:
-			m_facingDirection = FacingDirection::UP;
-			break;
-		case sf::Keyboard::S:
-			m_facingDirection = FacingDirection::DOWN;
-			break;
-		default:
-			break;
-		}
-	}
+	GetFSM()->Input();
 }
 

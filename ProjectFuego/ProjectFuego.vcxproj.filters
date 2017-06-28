@@ -31,6 +31,12 @@
     <Filter Include="Source Files\GameObjects">
       <UniqueIdentifier>{ce64d097-07ac-4b15-a5ef-20d33317680f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\ObjectStates">
+      <UniqueIdentifier>{75ae93ed-18a1-439c-acc1-48a571a2c21c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ObjectStates">
+      <UniqueIdentifier>{baec7d4a-307b-4624-9649-3f6b389fa384}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -75,14 +81,23 @@
     <ClInclude Include="GlobalConsts.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Animation.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Header Files\GameObjects</Filter>
     </ClInclude>
+    <ClInclude Include="ObjectState.h">
+      <Filter>Header Files\ObjectStates</Filter>
+    </ClInclude>
     <ClInclude Include="InputHolder.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\ResourceManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>Header Files\ResourceManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectStateMachine.h">
+      <Filter>Header Files\ObjectStates</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerOwnedStates.h">
+      <Filter>Header Files\GameStates</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -110,14 +125,17 @@
     <ClCompile Include="GameObject.cpp">
       <Filter>Source Files\GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="Animation.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>Source Files\GameObjects</Filter>
     </ClCompile>
     <ClCompile Include="InputHolder.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\ResourceManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation.cpp">
+      <Filter>Source Files\ResourceManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerOwnedStates.cpp">
+      <Filter>Source Files\GameStates</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

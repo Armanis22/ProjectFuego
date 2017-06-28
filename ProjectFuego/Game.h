@@ -25,7 +25,6 @@ public:
 
 	void PushState(std::unique_ptr<State::Game_State> state);
 	void PopState();
-
 	void ChangeState(std::unique_ptr<State::Game_State> state);
 
 

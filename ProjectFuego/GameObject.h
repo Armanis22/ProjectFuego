@@ -25,6 +25,7 @@ enum class ActionRow
 
 enum class ActionColumns
 {
+	STANDING = 0,
 	CASTING = 6,
 	THRUSTING = 7,
 	WALKING = 8,
@@ -39,8 +40,12 @@ class GameObject
 public:
 	GameObject(sf::Vector2f pos);
 
-	void Draw(sf::RenderWindow* window);
-	virtual void Update(float dt);
+	void			Draw	(sf::RenderWindow* window);
+	virtual void	Update	(float dt);
+
+	FacingDirection GetFacingDirection()					{ return m_facingDirection; }
+	void			SetFacingDirection(FacingDirection dir) { m_facingDirection = dir; }
+
 
 protected:
 	sf::RectangleShape m_sprite;

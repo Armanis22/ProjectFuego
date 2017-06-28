@@ -5,6 +5,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include <ctime>
+
 #include "Game.h"
 #include "Random.h"
 #include "GlobalConsts.h"
@@ -44,7 +45,7 @@ int main()
 			}
 
 			InputManager::Instance().StoreKeyPressed(event);
-			//InputManager::Instance().GetKeysPressed();
+			InputManager::Instance().GetKeysPressed();
 			
 
 			if (event.type == sf::Event::Closed)

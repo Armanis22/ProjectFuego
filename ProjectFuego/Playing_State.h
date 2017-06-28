@@ -8,9 +8,9 @@ namespace State
 	public:
 		Playing_State(Game& game);
 
-		void Input	()			override;
-		void Update	(float dt)	override;
-		void Draw	(sf::RenderWindow* window)			override;
+		void Input	()							override;
+		void Update	(float dt)					override;
+		void Draw	(sf::RenderWindow* window)	override;
 
 	private:
 		
