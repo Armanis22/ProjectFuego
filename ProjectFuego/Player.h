@@ -10,11 +10,14 @@ class Player :
 public:
 	Player(sf::Vector2f pos);
 	
+	void Draw(sf::RenderWindow* window);
 	void Update(float dt);
 
 	void Input();
 
 	std::unique_ptr<ObjectStateMachine>& GetFSM() { return m_StateMachine; }
+
+	virtual Animation& GetAnimation() { return m_animation; }
 
 private:
 

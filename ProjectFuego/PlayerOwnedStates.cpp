@@ -10,6 +10,9 @@ std::unique_ptr<StandingState> StandingState::Instance()
 
 void StandingState::Enter(GameObject & owner)
 {
+	printf("Entered playing state\n");
+	owner.GetAnimation().ClearFrames();
+	owner.GetAnimation().addFrame({ 0,64 * static_cast<int>(owner.GetFacingDirection()),64,64 }, .1f);
 }
 
 void StandingState::Input(GameObject & owner)
@@ -20,6 +23,7 @@ void StandingState::Input(GameObject & owner)
 		{
 		case sf::Keyboard::A:
 			owner.SetFacingDirection(FacingDirection::LEFT);
+			
 			break;
 		case sf::Keyboard::D:
 			owner.SetFacingDirection(FacingDirection::RIGHT);
@@ -38,6 +42,8 @@ void StandingState::Input(GameObject & owner)
 
 void StandingState::Update(GameObject & owner, float dt)
 {
+	owner.GetAnimation().ClearFrames();
+	owner.GetAnimation().addFrame({ 0,64 * static_cast<int>(owner.GetFacingDirection()),64,64 }, .1f);
 }
 
 void StandingState::Exit(GameObject & owner)
@@ -56,16 +62,21 @@ std::unique_ptr<WalkingState> WalkingState::Instance()
 
 void WalkingState::Enter(GameObject & owner)
 {
+	printf("Entered playing state\n");
+
 }
 
 void WalkingState::Input(GameObject & owner)
 {
+
 }
 
 void WalkingState::Update(GameObject & owner, float dt)
 {
+
 }
 
 void WalkingState::Exit(GameObject & owner)
 {
+
 }

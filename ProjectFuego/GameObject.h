@@ -4,6 +4,7 @@
 #include "InputHolder.h"
 #include "ResourceHolder.h"
 #include "GlobalConsts.h"
+#include "Animation.h"
 
 enum class FacingDirection
 {
@@ -40,17 +41,21 @@ class GameObject
 public:
 	GameObject(sf::Vector2f pos);
 
-	void			Draw	(sf::RenderWindow* window);
+	virtual void	Draw	(sf::RenderWindow* window);
 	virtual void	Update	(float dt);
 
 	FacingDirection GetFacingDirection()					{ return m_facingDirection; }
 	void			SetFacingDirection(FacingDirection dir) { m_facingDirection = dir; }
 
+	virtual Animation& GetAnimation() { return m_animation; }
 
 protected:
 	sf::RectangleShape m_sprite;
+	Animation m_animation;
 
 	FacingDirection m_facingDirection;
 	ActionRow m_currentAction;
+
+
 };
 

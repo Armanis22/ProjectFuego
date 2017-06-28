@@ -49,6 +49,7 @@ public:
 	void PushState(std::unique_ptr<ObjectState> pushingState)
 	{
 		m_stateStack.emplace(std::move(pushingState));
+		m_stateStack.top()->Enter(m_Owner);
 	}
 	void PopState()
 	{
