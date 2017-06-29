@@ -18,7 +18,9 @@ class Animation
 public:
 	void addFrame(const sf::IntRect& rect, float timeToNextFrame);
 	sf::IntRect getFrame(float dt);
-	void ClearFrames() { m_frames.clear(); }
+	void ClearFrames();
+	void SetAnimationRow(int row);
+
 private:
 
 	std::vector<Frame> m_frames;

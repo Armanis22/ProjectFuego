@@ -53,8 +53,8 @@ int main()
 		}
 
 		window.clear();
-		game.Draw(&window);
 		game.Update(dt.asSeconds());
+		game.Draw(&window);
 		window.display();	
 	}
 

@@ -23,3 +23,11 @@ sf::IntRect Animation::getFrame(float dt)
 	}
 	return m_frames.at(m_currentFrame).rect;
 }
+
+void Animation::ClearFrames()
+{
+	m_frames.clear();
+	deltaTime = 0;
+	m_currentFrame = 0;
+}
+
