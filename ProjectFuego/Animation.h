@@ -19,7 +19,6 @@ public:
 	void addFrame(const sf::IntRect& rect, float timeToNextFrame);
 	sf::IntRect getFrame(float dt);
 	void ClearFrames();
-	void SetAnimationRow(int row);
 
 private:
 

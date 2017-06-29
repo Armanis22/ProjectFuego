@@ -28,7 +28,8 @@ void Player::Update(float dt)
 {
 	Input();
 	GetFSM()->Update(dt);
-	m_sprite.setTextureRect(m_animation.getFrame(dt)); 
+	m_sprite.setTextureRect(m_animation.getFrame(dt));
+	SetPreviousFacing();
 }
 
 void Player::Input()
@@ -37,19 +38,15 @@ void Player::Input()
 	{
 		SetFacingDirection(FacingDirection::LEFT);
 	}
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+	{
+		SetFacingDirection(FacingDirection::RIGHT);
+	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
 		SetFacingDirection(FacingDirection::DOWN);
-		printf("down %d\n", static_cast<int>(GetFacingDirection()));
-
-		
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-	{
-		SetFacingDirection(FacingDirection::RIGHT);
-		printf("right %d\n", static_cast<int>(GetFacingDirection()));
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 	{
 		SetFacingDirection(FacingDirection::UP);
 	}

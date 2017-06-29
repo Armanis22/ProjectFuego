@@ -44,9 +44,7 @@ int main()
 				}
 			}
 
-			InputManager::Instance().StoreKeyPressed(event);
-			InputManager::Instance().GetKeysPressed();
-			
+			InputManager::Instance().StoreKeyPressed(event);			
 
 			if (event.type == sf::Event::Closed)
 				window.close();
@@ -57,7 +55,5 @@ int main()
 		game.Draw(&window);
 		window.display();	
 	}
-
-	
 	return 0;
 }

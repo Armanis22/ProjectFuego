@@ -15,8 +15,6 @@ public:
 
 	void Input();
 
-	virtual Animation& GetAnimation() { return m_animation; }
-
 private:
 
 };

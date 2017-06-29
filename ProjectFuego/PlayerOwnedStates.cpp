@@ -10,6 +10,8 @@ StandingState* StandingState::Instance()
 
 void StandingState::Enter(CharacterObject & owner)
 {
+	printf("entered standing\n");
+
 	//owner.GetAnimation().ClearFrames();
 	owner.GetAnimation().addFrame({ 0,64 * static_cast<int>(owner.GetFacingDirection()),64,64 }, .1f);
 }
@@ -56,6 +58,7 @@ void StandingState::Update(CharacterObject & owner, float dt)
 
 void StandingState::Exit(CharacterObject & owner)
 {
+	owner.GetAnimation().ClearFrames();
 }
 
 
@@ -70,12 +73,9 @@ WalkingState* WalkingState::Instance()
 
 void WalkingState::Enter(CharacterObject & owner)
 {
+	printf("entered walking\n");
+
 	owner.GetAnimation().ClearFrames();
-	for (int i = 1; i < static_cast<int>(ActionColumns::WALKING); i++)
-	{
-		int _row = static_cast<int>(owner.GetFacingDirection()) + static_cast<int>(ActionRow::WALKING);
-		owner.GetAnimation().addFrame({64*i,64*_row,64,64}, TIMETONEXTFRAME);
-	}
 
 }
 
@@ -92,12 +92,28 @@ void WalkingState::Input(CharacterObject & owner)
 }
 
 void WalkingState::Update(CharacterObject & owner, float dt)
-{
-	//owner.GetAnimation().ClearFrames();
-	for (int i = 1; i < static_cast<int>(ActionColumns::WALKING); i++)
+{	
+	if (owner.GetPreviousFacing() != owner.GetFacingDirection())
 	{
-		int _row = static_cast<int>(owner.GetFacingDirection()) + static_cast<int>(ActionRow::WALKING);
-		owner.GetAnimation().addFrame({ 64 * i,64 * _row,64,64 }, TIMETONEXTFRAME);
+		owner.GetAnimation().ClearFrames();
+	}
+	switch (owner.GetFacingDirection())
+	{
+	case FacingDirection::UP:
+		owner.WalkUpAnimation();
+		break;
+	case FacingDirection::DOWN:
+		owner.WalkDownAnimation();
+		break;
+	case FacingDirection::LEFT:
+		owner.WalkLeftAnimation();
+		break;
+	case FacingDirection::RIGHT:
+		owner.WalkRightAnimation();
+		break;
+
+	default:
+		break;
 	}
 }
 

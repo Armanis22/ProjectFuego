@@ -30,4 +30,3 @@ void Animation::ClearFrames()
 	deltaTime = 0;
 	m_currentFrame = 0;
 }
-
