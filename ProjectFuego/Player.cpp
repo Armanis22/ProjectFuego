@@ -15,7 +15,7 @@ Player::Player(sf::Vector2f pos) :
 
 	m_facingDirection = FacingDirection::DOWN;
 	m_currentAction = ActionRow::WALKING;
-	m_StateMachine->PushState(StandingState::Instance());
+	m_StateMachine->SetCurrentState(StandingState::Instance());
 
 }
 
@@ -28,11 +28,9 @@ void Player::Update(float dt)
 {
 
 	Input();
-	//m_sprite.setTextureRect(sf::IntRect(SPRITEDIMENSION * 4 /*static_cast<int>(m_currentAction)*/, 
-	//									SPRITEDIMENSION * static_cast<int>(m_facingDirection),
-	//									SPRITEDIMENSION, SPRITEDIMENSION));
-	m_sprite.setTextureRect(m_animation.getFrame(dt)); 
 	GetFSM()->Update(dt);
+	m_sprite.setTextureRect(m_animation.getFrame(dt)); 
+	//GetFSM()->PushState(WalkingState::Instance());
 
 }
 

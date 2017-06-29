@@ -7,7 +7,7 @@
 class StandingState : public ObjectState
 {
 public:
-	static std::unique_ptr<StandingState> Instance();
+	static StandingState* Instance();
 
 	virtual void Enter	(CharacterObject& owner);
 	virtual void Input	(CharacterObject& owner);
@@ -18,7 +18,7 @@ public:
 class WalkingState : public ObjectState
 {
 public:
-	static std::unique_ptr<WalkingState> Instance();
+	static WalkingState* Instance();
 
 	virtual void Enter	(CharacterObject& owner);
 	virtual void Input	(CharacterObject& owner);

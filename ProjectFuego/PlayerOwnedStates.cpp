@@ -2,10 +2,10 @@
 #include "PlayerOwnedStates.h"
 
 // all things standing still
-std::unique_ptr<StandingState> StandingState::Instance()
+StandingState* StandingState::Instance()
 {
-	static auto state = std::make_unique<StandingState>();
-	return std::move(state);
+	static StandingState state;
+	return &state;
 }
 
 void StandingState::Enter(CharacterObject & owner)
@@ -23,7 +23,7 @@ void StandingState::Input(CharacterObject & owner)
 		{
 		case sf::Keyboard::A:
 			owner.SetFacingDirection(FacingDirection::LEFT);
-			
+			owner.GetFSM()->ChangeState(WalkingState::Instance());
 			break;
 		case sf::Keyboard::D:
 			owner.SetFacingDirection(FacingDirection::RIGHT);
@@ -54,21 +54,35 @@ void StandingState::Exit(CharacterObject & owner)
 // All things walking state
 
 
-std::unique_ptr<WalkingState> WalkingState::Instance()
+WalkingState* WalkingState::Instance()
 {
-	static auto state = std::make_unique<WalkingState>();
-	return std::move(state);
+	static WalkingState state;
+	return &state;
 }
 
 void WalkingState::Enter(CharacterObject & owner)
 {
 	printf("Entered walking state\n");
+	owner.GetAnimation().ClearFrames();
+	owner.GetAnimation().addFrame({ 0,64 * static_cast<int>(owner.GetFacingDirection()),64,64 }, .1f);
 
 }
 
 void WalkingState::Input(CharacterObject & owner)
 {
-
+	for (auto& keyValue : InputManager::Instance().GetKeysPressed())
+	{
+		switch (keyValue.first)
+		{
+	
+		case sf::Keyboard::D:
+			owner.GetFSM()->ChangeState(StandingState::Instance());
+			break;
+		
+		default:
+			break;
+		}
+	}
 }
 
 void WalkingState::Update(CharacterObject & owner, float dt)
