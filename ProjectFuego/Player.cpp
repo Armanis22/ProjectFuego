@@ -34,6 +34,7 @@ void Player::Update(float dt)
 
 void Player::Input()
 {
+
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
 		SetFacingDirection(FacingDirection::LEFT);

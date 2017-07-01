@@ -7,31 +7,36 @@ CharacterObject::CharacterObject(sf::Vector2f pos) :
 {
 }
 
-void CharacterObject::CreateAnimation(Animation & animation, FacingDirection direction, ActionRow row, ActionColumns column)
+void CharacterObject::CreateAnimation(FacingDirection direction, ActionRow row, ActionColumns column)
 {
 	int _row = static_cast<int>(direction) + static_cast<int>(row);
 	for (int i = 1; i < static_cast<int>(column); i++)
 	{
-		animation.addFrame({ 64 * i,64 * _row,64,64 }, TIMETONEXTFRAME);
+		m_animation.addFrame({ 64 * i,64 * _row,64,64 }, TIMETONEXTFRAME);
 	}
 }
 
-void CharacterObject::WalkUpAnimation()
+void CharacterObject::WalkAnimation()
 {
-	CreateAnimation(m_animation, FacingDirection::UP, ActionRow::WALKING, ActionColumns::WALKING);
+	CreateAnimation(m_facingDirection, ActionRow::WALKING, ActionColumns::WALKING);
 }
 
-void CharacterObject::WalkDownAnimation()
+void CharacterObject::MoveSpriteUp(float dt)
 {
-	CreateAnimation(m_animation, FacingDirection::DOWN, ActionRow::WALKING, ActionColumns::WALKING);
+	m_sprite.move({ 0,-MOVESPEED * dt });
 }
 
-void CharacterObject::WalkLeftAnimation()
+void CharacterObject::MoveSpriteDown(float dt)
 {
-	CreateAnimation(m_animation, FacingDirection::LEFT, ActionRow::WALKING, ActionColumns::WALKING);
+	m_sprite.move({ 0, MOVESPEED * dt });
 }
 
-void CharacterObject::WalkRightAnimation()
+void CharacterObject::MoveSpriteLeft(float dt)
 {
-	CreateAnimation(m_animation, FacingDirection::RIGHT, ActionRow::WALKING, ActionColumns::WALKING);
+	m_sprite.move({ -MOVESPEED * dt,0 });
+}
+
+void CharacterObject::MoveSpriteRight(float dt)
+{
+	m_sprite.move({ MOVESPEED * dt,0 });
 }

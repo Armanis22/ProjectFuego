@@ -46,27 +46,23 @@ public:
 	std::unique_ptr<ObjectStateMachine>& GetFSM()	{ return m_StateMachine; }
 
 	virtual Animation& GetAnimation	()				{ return m_animation; }
-	void CreateAnimation			(Animation& animation, FacingDirection direction, ActionRow row, ActionColumns column);
+	void CreateAnimation			(FacingDirection direction, ActionRow row, ActionColumns column);
 
-	void WalkUpAnimation();
-	void WalkDownAnimation();
-	void WalkLeftAnimation();
-	void WalkRightAnimation();
+	void WalkAnimation();
+
+	void MoveSpriteUp(float dt);
+	void MoveSpriteDown(float dt);
+	void MoveSpriteLeft(float dt);
+	void MoveSpriteRight(float dt);
 
 
 protected:
 
 	std::unique_ptr<ObjectStateMachine> m_StateMachine;
 	Animation m_animation;
-	Animation m_walkUp;
-	Animation m_walkDown;
-	Animation m_walkLeft;
-	Animation m_walkRight;
-	
 
 	FacingDirection m_facingDirection;
 	FacingDirection m_preciousFacingDirection;
 	ActionRow m_currentAction;
-
 };
 
