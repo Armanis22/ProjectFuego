@@ -66,6 +66,47 @@ void WalkingState::Input(CharacterObject & owner)
 	{
 		owner.GetFSM()->ChangeState(StandingState::Instance());
 	}
+	switch (owner.GetFacingDirection())
+	{
+	case FacingDirection::RIGHT:
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+		{
+			owner.SetMoveVector(MOVEDIAG, -MOVEDIAG);
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+		{
+			owner.SetMoveVector(MOVEDIAG, MOVEDIAG);
+		}
+		else
+		{
+			owner.SetMoveVector(MOVESPEED, 0);
+		}
+		break;
+	case FacingDirection::LEFT:
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+		{
+			owner.SetMoveVector(-MOVEDIAG, -MOVEDIAG);
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+		{
+			owner.SetMoveVector(-MOVEDIAG, MOVEDIAG);
+		}
+		else
+		{
+			owner.SetMoveVector(-MOVESPEED, 0);
+		}
+		break;
+	case FacingDirection::UP:
+		owner.SetMoveVector(0, -MOVESPEED);
+		break;
+	case FacingDirection::DOWN:
+		owner.SetMoveVector(0, MOVESPEED);
+		break;
+
+	default:
+		owner.SetMoveVector(0, 0);
+		break;
+	}
 }
 
 void WalkingState::Update(CharacterObject & owner, float dt)
@@ -74,26 +115,8 @@ void WalkingState::Update(CharacterObject & owner, float dt)
 	{
 		owner.GetAnimation().ClearFrames();
 	}
-	switch (owner.GetFacingDirection())
-	{
-	case FacingDirection::RIGHT:
-		owner.MoveSpriteRight(dt);
-		break;
-	case FacingDirection::UP:
-		owner.MoveSpriteUp(dt);
-
-		break;
-	case FacingDirection::DOWN:
-		owner.MoveSpriteDown(dt);
-		break;
-	case FacingDirection::LEFT:
-		owner.MoveSpriteLeft(dt);
-		break;
-
-	default:
-		break;
-	}
 	owner.WalkAnimation();
+	owner.MoveSprite(dt);
 }
 
 void WalkingState::Exit(CharacterObject & owner)

@@ -21,22 +21,14 @@ void CharacterObject::WalkAnimation()
 	CreateAnimation(m_facingDirection, ActionRow::WALKING, ActionColumns::WALKING);
 }
 
-void CharacterObject::MoveSpriteUp(float dt)
+void CharacterObject::MoveSprite(float dt)
 {
-	m_sprite.move({ 0,-MOVESPEED * dt });
+	m_sprite.move({ m_moveDirection.x * dt, m_moveDirection.y * dt });
+
 }
 
-void CharacterObject::MoveSpriteDown(float dt)
+void CharacterObject::SetMoveVector(float x, float y)
 {
-	m_sprite.move({ 0, MOVESPEED * dt });
+	m_moveDirection = sf::Vector2f(x, y);
 }
 
-void CharacterObject::MoveSpriteLeft(float dt)
-{
-	m_sprite.move({ -MOVESPEED * dt,0 });
-}
-
-void CharacterObject::MoveSpriteRight(float dt)
-{
-	m_sprite.move({ MOVESPEED * dt,0 });
-}

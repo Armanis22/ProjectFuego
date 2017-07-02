@@ -50,11 +50,8 @@ public:
 
 	void WalkAnimation();
 
-	void MoveSpriteUp(float dt);
-	void MoveSpriteDown(float dt);
-	void MoveSpriteLeft(float dt);
-	void MoveSpriteRight(float dt);
-
+	void MoveSprite(float dt);
+	void SetMoveVector(float x, float y);
 
 protected:
 
@@ -64,5 +61,7 @@ protected:
 	FacingDirection m_facingDirection;
 	FacingDirection m_preciousFacingDirection;
 	ActionRow m_currentAction;
+
+	sf::Vector2f m_moveDirection;
 };
 

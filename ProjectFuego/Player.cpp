@@ -11,7 +11,7 @@ Player::Player(sf::Vector2f pos) :
 
 	m_sprite.setSize(sf::Vector2f(64, 64));
 	//m_sprite.setTextureRect(sf::IntRect(64 * 0, 64 * 3, 64, 64));
-	m_sprite.setScale(4, 4);
+	//m_sprite.setScale(4, 4);
 
 	m_facingDirection = FacingDirection::UP;
 	m_currentAction = ActionRow::WALKING;
@@ -35,15 +35,15 @@ void Player::Update(float dt)
 void Player::Input()
 {
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-	{
-		SetFacingDirection(FacingDirection::LEFT);
-	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
 		SetFacingDirection(FacingDirection::RIGHT);
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+	{
+		SetFacingDirection(FacingDirection::LEFT);
+	}
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
 		SetFacingDirection(FacingDirection::DOWN);
 	}
