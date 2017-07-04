@@ -11,7 +11,7 @@ Player::Player(sf::Vector2f pos) :
 
 	m_sprite.setSize(sf::Vector2f(64, 64));
 	//m_sprite.setTextureRect(sf::IntRect(64 * 0, 64 * 3, 64, 64));
-	//m_sprite.setScale(4, 4);
+	m_sprite.setScale(2, 2);
 
 	m_facingDirection = FacingDirection::UP;
 	m_currentAction = ActionRow::WALKING;

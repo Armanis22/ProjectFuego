@@ -22,6 +22,11 @@ int main()
 	sf::Clock clock;
 	Random::init();
 
+
+	float temp = 596 / 30;
+	printf("506 modulus %f", temp);
+
+
 	while (window.isOpen())								//--------------------- Start of game loop
 	{
 		sf::Time dt = clock.restart();
