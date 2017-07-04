@@ -5,6 +5,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include <ctime>
+#include "lua.hpp"
 
 #include "Game.h"
 #include "Random.h"
@@ -23,8 +24,17 @@ int main()
 	Random::init();
 
 
-	float temp = 596 / 30;
-	printf("506 modulus %f", temp);
+	//lua test shit
+	lua_State *L = luaL_newstate();
+	luaL_openlibs(L);
+
+	if (luaL_dofile(L, "test.lua"))
+	{
+		const char* err = lua_tostring(L, -1);
+		printf(err);
+	}
+
+	lua_close(L);
 
 
 	while (window.isOpen())								//--------------------- Start of game loop
