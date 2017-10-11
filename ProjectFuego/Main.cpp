@@ -35,7 +35,7 @@ int main()
 		lua_State* L = luaL_newstate();
 		luaL_openlibs(L);
 
-		if (luaL_dofile(L, "test.lua"))
+		if (luaL_dofile(L, "Scripts/test.lua"))
 		{
 			const char* err = lua_tostring(L, -1);
 			printf(err);
@@ -50,7 +50,7 @@ int main()
 		luaopen_table(pL);
 		luaopen_math(pL);
 		luaopen_io(pL);
-		if (int error = luaL_dofile(pL, "new_test.lua") != 0)
+		if (int error = luaL_dofile(pL, "Scripts/new_test.lua") != 0)
 		{
 			printf("\n[C++] ERROR%d: problem with lua script file \n\n", error);
 		}

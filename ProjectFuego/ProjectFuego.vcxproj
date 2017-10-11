@@ -183,7 +183,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerOwnedStates.cpp" />
     <ClCompile Include="Playing_State.cpp" />
-    <ClCompile Include="ProjectFuego.cpp" />
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="Random.cpp" />
     <ClCompile Include="ResourceHolder.cpp" />
     <ClCompile Include="stdafx.cpp">

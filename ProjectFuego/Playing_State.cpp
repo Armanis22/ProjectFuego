@@ -9,7 +9,7 @@ namespace State
 		// testing resource stuff. temp
 		music.openFromFile("Assets/Music/old_city_theme.ogg");
 		music.setVolume(100);
-		music.play();
+		//music.play();                   temp off for less distraction
 		music.setLoop(true);
 		
 	}

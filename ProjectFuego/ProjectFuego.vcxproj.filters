@@ -99,18 +99,15 @@
     <ClInclude Include="ObjectStateMachine.h">
       <Filter>Header Files\ObjectStates</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerOwnedStates.h">
-      <Filter>Header Files\GameStates</Filter>
-    </ClInclude>
     <ClInclude Include="CharacterObject.h">
       <Filter>Header Files\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerOwnedStates.h">
+      <Filter>Header Files\ObjectStates</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ProjectFuego.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Game.cpp">
@@ -145,6 +142,9 @@
     </ClCompile>
     <ClCompile Include="PlayerOwnedStates.cpp">
       <Filter>Source Files\ObjectStates</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
