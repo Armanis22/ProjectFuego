@@ -13,6 +13,13 @@
 #include "Player.h"
 #include "InputHolder.h"
 
+extern "C"
+{
+#include <lua.h>
+#include <lualib.h>
+}
+
+
 bool fullscreen = false;
 int main()
 {
@@ -25,17 +32,33 @@ int main()
 
 
 	//lua test shit
-	lua_State *L = luaL_newstate();
-	luaL_openlibs(L);
+		lua_State* L = luaL_newstate();
+		luaL_openlibs(L);
 
-	if (luaL_dofile(L, "test.lua"))
-	{
-		const char* err = lua_tostring(L, -1);
-		printf(err);
-	}
+		if (luaL_dofile(L, "test.lua"))
+		{
+			const char* err = lua_tostring(L, -1);
+			printf(err);
+		}
 
-	lua_close(L);
+		lua_close(L);
+	//end of tut lua
+	//start of game ai book lua
+		lua_State* pL = luaL_newstate();
+		luaopen_base(pL);
+		luaopen_string(pL);
+		luaopen_table(pL);
+		luaopen_math(pL);
+		luaopen_io(pL);
+		if (int error = luaL_dofile(pL, "new_test.lua") != 0)
+		{
+			printf("\n[C++] ERROR%d: problem with lua script file \n\n", error);
+		}
 
+
+		lua_close(pL);
+
+	// end of lua testing
 
 	while (window.isOpen())								//--------------------- Start of game loop
 	{

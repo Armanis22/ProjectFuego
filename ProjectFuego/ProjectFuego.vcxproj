@@ -149,6 +149,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
+    <Text Include="new_test.lua" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />

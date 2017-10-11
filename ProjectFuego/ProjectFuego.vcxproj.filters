@@ -40,6 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
+    <Text Include="new_test.lua">
+      <Filter>Source Files</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -137,11 +140,11 @@
     <ClCompile Include="Animation.cpp">
       <Filter>Source Files\ResourceManagement</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerOwnedStates.cpp">
-      <Filter>Source Files\GameStates</Filter>
-    </ClCompile>
     <ClCompile Include="CharacterObject.cpp">
       <Filter>Source Files\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerOwnedStates.cpp">
+      <Filter>Source Files\ObjectStates</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
