@@ -4,7 +4,7 @@
 
 
 
-Monster::Monster(sf::Vector2f pos) : 
+Pet::Pet(sf::Vector2f pos, TextureName texture) :
 	CharacterObject::CharacterObject(pos),
 	m_evolveState(false), 
 	m_hunger(0)
@@ -12,11 +12,27 @@ Monster::Monster(sf::Vector2f pos) :
 	//Begin by initializing the base stats
 	RollBaseStats();
 	m_monsterType = Type::NORMAL; //change this later, if we want to take a specific type (Alternate constructor maybe)
-	m_hunger = new Stat("Hunger", 0, 20); 
+	m_hunger = new Stat("Hunger", 0, 20);
+
+
+	// This is mostly Temp to just get a pet in thuurr
+
+	m_sprite.setTexture(&ResourceHolder::Instance().getTexture(texture));
+	m_sprite.setPosition(pos);
+
+	m_sprite.setSize({ 64,64 });
+	m_sprite.setScale(2, 2);
+	m_sprite.setTextureRect(sf::IntRect(64 * 0, 64 * 2, 64, 64));
+
+	m_facingDirection = FacingDirection::DOWN;
+	m_currentAction = ActionRow::WALKING;
+	
+	// ahead of myself, pet doesn't have a working state machine
+	//m_StateMachine->SetCurrentState(StandingState::Instance());
 }
 
 
-Monster::~Monster()
+Pet::~Pet()
 {
 	//Delete the stats vector
 	for (unsigned int i = 0; i < m_attributes.size(); i++)
@@ -27,7 +43,11 @@ Monster::~Monster()
 	//Clean any other necessary things
 }
 
-void Monster::RollBaseStats()
+void Pet::Update(float dt)
+{
+}
+
+void Pet::RollBaseStats()
 {
 	//Function to roll stats and load into the attribute vector
 
@@ -37,7 +57,7 @@ void Monster::RollBaseStats()
 	}
 }
 
-void Monster::InitializeStat(int statNum)
+void Pet::InitializeStat(int statNum)
 {
 	//Helper for stat initializing for loop, pass in i which will hit the switch statement
 	Stat* tmp;
@@ -74,7 +94,7 @@ void Monster::InitializeStat(int statNum)
 	}
 }
 
-std::string Monster::GetMonsterType(Type monsterType)
+std::string Pet::GetMonsterType(Type monsterType)
 {
 	std::string type;
 	
@@ -102,11 +122,11 @@ std::string Monster::GetMonsterType(Type monsterType)
 	return type;
 }
 
-void Monster::Eat(std::string statToBeModified, float statIncrease, float hungerIncrease)
+void Pet::Eat(std::string statToBeModified, float statIncrease, float hungerIncrease)
 {
 	//Feed the monster food to increase targeted attributes
 
-	for (int i = 0; i < m_attributes.size(); i++)
+	for (size_t i = 0; i < m_attributes.size(); i++)
 	{
 		if (m_attributes[i]->GetID() == statToBeModified)
 		{
@@ -123,7 +143,7 @@ void Monster::Eat(std::string statToBeModified, float statIncrease, float hunger
 	m_hunger->AddCurrent(hungerIncrease);
 }
 
-void Monster::Evolve()
+void Pet::Evolve()
 {
 	//Monster has hit the requirement to change types
 	m_evolveState = false;
@@ -134,7 +154,7 @@ void Monster::Evolve()
 	std::cout << "It's new type is: " << GetMonsterType(m_monsterType) << "\n" << std::endl;
 }
 
-bool Monster::IsHungry()
+bool Pet::IsHungry()
 {
 	//may want more explicit checking, (if someone tries to feed a large fillamount, we want to case so they don't get more increase than they should before the fill)
 	if (m_hunger->GetCurrent() == m_hunger->GetMax())
@@ -145,7 +165,7 @@ bool Monster::IsHungry()
 	return true;
 }
 
-void Monster::ListStats()
+void Pet::ListStats()
 {
 	//Print the monsters stats to the screen for reference
 

@@ -2,6 +2,7 @@
 #include "Stat.h"
 #include <vector>
 #include "CharacterObject.h"
+#include "ObjectStateMachine.h"
 
 enum class Type
 {
@@ -14,11 +15,13 @@ enum class Type
 	COUNT // Holds the length of the types, more can be added / removed as needed
 };
 
-class Monster : public CharacterObject
+class Pet : public CharacterObject
 {
 public:
-	Monster(sf::Vector2f pos);
-	~Monster();
+	Pet(sf::Vector2f pos, TextureName texture);
+	~Pet();
+
+	void Update(float dt);
 
 	void RollBaseStats(); //loop for stat init
 	void InitializeStat(int statNum); //For setting stat (Str, Def, etc) pass in number for a switch to create a stat

@@ -1,12 +1,16 @@
 #include "stdafx.h"
 #include "Game.h"
 #include "Player.h"
+#include "Pet.h"
+
 
 
 Game::Game()
 {
 	PushState(std::make_unique<State::Playing_State>(*this));
 	AddObject(std::make_shared<Player>(sf::Vector2f(200, 200)));
+	AddObject(std::make_shared<Pet>(sf::Vector2f(300, 300), TextureName::SKELETON));
+
 
 }
 

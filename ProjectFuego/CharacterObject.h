@@ -40,8 +40,8 @@ public:
 
 	FacingDirection GetFacingDirection()					{ return m_facingDirection; }
 	void			SetFacingDirection(FacingDirection dir) { m_facingDirection = dir; }
-	void			SetPreviousFacing()						{ m_preciousFacingDirection = m_facingDirection; }
-	FacingDirection	GetPreviousFacing()						{ return m_preciousFacingDirection; }
+	void			SetPreviousFacing()						{ m_previousFacingDirection = m_facingDirection; }
+	FacingDirection	GetPreviousFacing()						{ return m_previousFacingDirection; }
 
 	std::unique_ptr<ObjectStateMachine>& GetFSM()			{ return m_StateMachine; }
 
@@ -59,7 +59,7 @@ protected:
 	Animation m_animation;
 
 	FacingDirection m_facingDirection;
-	FacingDirection m_preciousFacingDirection;
+	FacingDirection m_previousFacingDirection;
 	ActionRow m_currentAction;
 
 	sf::Vector2f m_moveDirection;
