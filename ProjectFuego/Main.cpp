@@ -13,11 +13,11 @@
 #include "Player.h"
 #include "InputHolder.h"
 
-extern "C"
-{
-#include <lua.h>
-#include <lualib.h>
-}
+//extern "C"
+//{
+//#include <lua.h>
+//#include <lualib.h>
+//}
 
 
 bool fullscreen = false;
@@ -41,10 +41,14 @@ int main()
 			printf(err);
 		}
 
+		luaL_openlibs(L);
+		puts("What the fuck mang!");
+		printf("also hello");
+
 		lua_close(L);
 	//end of tut lua
 	//start of game ai book lua
-		lua_State* pL = luaL_newstate();
+		/*lua_State* pL = luaL_newstate();
 		luaopen_base(pL);
 		luaopen_string(pL);
 		luaopen_table(pL);
@@ -56,7 +60,7 @@ int main()
 		}
 
 
-		lua_close(pL);
+		lua_close(pL);*/
 
 	// end of lua testing
 

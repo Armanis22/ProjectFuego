@@ -37,12 +37,12 @@
     <Filter Include="Source Files\ObjectStates">
       <UniqueIdentifier>{baec7d4a-307b-4624-9649-3f6b389fa384}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Scripts">
+      <UniqueIdentifier>{b34e492d-4771-4854-b0a4-9acbf19e37af}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
-    <Text Include="new_test.lua">
-      <Filter>Source Files</Filter>
-    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -148,8 +148,11 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="test.lua">
-      <Filter>Source Files</Filter>
+    <None Include="Scripts\new_test.lua">
+      <Filter>Source Files\Scripts</Filter>
+    </None>
+    <None Include="Scripts\test.lua">
+      <Filter>Source Files\Scripts</Filter>
     </None>
   </ItemGroup>
 </Project>
