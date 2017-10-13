@@ -4,7 +4,10 @@
 
 
 
-Monster::Monster() : m_evolveState(false), m_hunger(0)
+Monster::Monster(sf::Vector2f pos) : 
+	CharacterObject::CharacterObject(pos),
+	m_evolveState(false), 
+	m_hunger(0)
 {
 	//Begin by initializing the base stats
 	RollBaseStats();

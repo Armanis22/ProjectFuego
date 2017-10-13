@@ -1,6 +1,7 @@
 #pragma once
 #include "Stat.h"
 #include <vector>
+#include "CharacterObject.h"
 
 enum class Type
 {
@@ -13,10 +14,10 @@ enum class Type
 	COUNT // Holds the length of the types, more can be added / removed as needed
 };
 
-class Monster
+class Monster : public CharacterObject
 {
 public:
-	Monster();
+	Monster(sf::Vector2f pos);
 	~Monster();
 
 	void RollBaseStats(); //loop for stat init

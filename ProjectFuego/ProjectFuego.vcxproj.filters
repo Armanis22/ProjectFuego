@@ -1,173 +1,170 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Header Files\ResourceManagement">
-      <UniqueIdentifier>{776d2767-662a-4829-8445-46d466ca081c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\GameStates">
-      <UniqueIdentifier>{7f59ec3b-24d5-4a0c-8597-d74536ca042f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\GameStates">
-      <UniqueIdentifier>{90f51f3a-e04d-4a43-ba2c-c4245dc44bda}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\ResourceManagement">
-      <UniqueIdentifier>{0fb156e2-f47b-4352-9835-eec267b347e9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\GameObjects">
-      <UniqueIdentifier>{81445647-2d70-4d87-8d2e-d268a2c9ec0a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\GameObjects">
-      <UniqueIdentifier>{ce64d097-07ac-4b15-a5ef-20d33317680f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\ObjectStates">
-      <UniqueIdentifier>{75ae93ed-18a1-439c-acc1-48a571a2c21c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\ObjectStates">
-      <UniqueIdentifier>{baec7d4a-307b-4624-9649-3f6b389fa384}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="ReadMe.txt" />
-    <Text Include="new_test.lua">
+    <ClCompile Include="Animation.cpp">
       <Filter>Source Files</Filter>
-    </Text>
+    </ClCompile>
+    <ClCompile Include="Food.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Random.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Stat.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterObject.cpp">
+      <Filter>Source Files\Game Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Source Files\Game Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Game Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Game_State.cpp">
+      <Filter>Source Files\Game States</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceHolder.cpp">
+      <Filter>Source Files\Resource Management</Filter>
+    </ClCompile>
+    <ClCompile Include="Playing_State.cpp">
+      <Filter>Source Files\Game States</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerOwnedStates.cpp">
+      <Filter>Source Files\Object States</Filter>
+    </ClCompile>
+    <ClCompile Include="InputHolder.cpp">
+      <Filter>Source Files\Resource Management</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Animation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Food.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalConsts.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Random.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Stat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Random.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game_State.h">
-      <Filter>Header Files\GameStates</Filter>
-    </ClInclude>
-    <ClInclude Include="Playing_State.h">
-      <Filter>Header Files\GameStates</Filter>
-    </ClInclude>
-    <ClInclude Include="ResourceHolder.h">
-      <Filter>Header Files\ResourceManagement</Filter>
-    </ClInclude>
-    <ClInclude Include="ResourceManager.h">
-      <Filter>Header Files\ResourceManagement</Filter>
-    </ClInclude>
-    <ClInclude Include="TextureManager.h">
-      <Filter>Header Files\ResourceManagement</Filter>
-    </ClInclude>
-    <ClInclude Include="SoundManager.h">
-      <Filter>Header Files\ResourceManagement</Filter>
-    </ClInclude>
-    <ClInclude Include="FontManager.h">
-      <Filter>Header Files\ResourceManagement</Filter>
+    <ClInclude Include="CharacterObject.h">
+      <Filter>Header Files\Game Objects</Filter>
     </ClInclude>
     <ClInclude Include="GameObject.h">
-      <Filter>Header Files\GameObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="GlobalConsts.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Game Objects</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>Header Files\GameObjects</Filter>
+      <Filter>Header Files\Game Objects</Filter>
     </ClInclude>
-    <ClInclude Include="ObjectState.h">
-      <Filter>Header Files\ObjectStates</Filter>
+    <ClInclude Include="FontManager.h">
+      <Filter>Header Files\Recource Management</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceHolder.h">
+      <Filter>Header Files\Recource Management</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManager.h">
+      <Filter>Header Files\Recource Management</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundManager.h">
+      <Filter>Header Files\Recource Management</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>Header Files\Recource Management</Filter>
+    </ClInclude>
+    <ClInclude Include="Game_State.h">
+      <Filter>Header Files\Game States</Filter>
     </ClInclude>
     <ClInclude Include="InputHolder.h">
-      <Filter>Header Files\ResourceManagement</Filter>
+      <Filter>Header Files\Recource Management</Filter>
     </ClInclude>
-    <ClInclude Include="Animation.h">
-      <Filter>Header Files\ResourceManagement</Filter>
+    <ClInclude Include="Playing_State.h">
+      <Filter>Header Files\Game States</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectState.h">
+      <Filter>Header Files\Object States</Filter>
     </ClInclude>
     <ClInclude Include="ObjectStateMachine.h">
-      <Filter>Header Files\ObjectStates</Filter>
-    </ClInclude>
-    <ClInclude Include="CharacterObject.h">
-      <Filter>Header Files\GameObjects</Filter>
+      <Filter>Header Files\Object States</Filter>
     </ClInclude>
     <ClInclude Include="PlayerOwnedStates.h">
-      <Filter>Header Files\ObjectStates</Filter>
-    </ClInclude>
-    <ClInclude Include="Food.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Monster.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Stat.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Object States</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Random.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Playing_State.cpp">
-      <Filter>Source Files\GameStates</Filter>
-    </ClCompile>
-    <ClCompile Include="Game_State.cpp">
-      <Filter>Source Files\GameStates</Filter>
-    </ClCompile>
-    <ClCompile Include="ResourceHolder.cpp">
-      <Filter>Source Files\ResourceManagement</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>Source Files\GameObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files\GameObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="InputHolder.cpp">
-      <Filter>Source Files\ResourceManagement</Filter>
-    </ClCompile>
-    <ClCompile Include="Animation.cpp">
-      <Filter>Source Files\ResourceManagement</Filter>
-    </ClCompile>
-    <ClCompile Include="CharacterObject.cpp">
-      <Filter>Source Files\GameObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerOwnedStates.cpp">
-      <Filter>Source Files\ObjectStates</Filter>
-    </ClCompile>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Food.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Monster.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Stat.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <Text Include="ReadMe.txt" />
+    <Text Include="new_test.lua">
+      <Filter>Script Files</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{53ec5db5-5131-462a-b8ca-1f0424849625}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{3b24f269-debf-42d8-89ef-c9901c3a24b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Script Files">
+      <UniqueIdentifier>{25fbc336-9014-4cad-a0f1-8014de5f33d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game Objects">
+      <UniqueIdentifier>{41621612-df5c-4be8-b03a-6c67ff321f2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Recource Management">
+      <UniqueIdentifier>{4097d442-b3c6-4fc7-a9cf-4cd0316304ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game Objects">
+      <UniqueIdentifier>{5390a037-bee5-40ba-aedc-0ec82a6f791b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game States">
+      <UniqueIdentifier>{5234e60e-ff55-48c8-a93c-d0095dd84cd5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Object States">
+      <UniqueIdentifier>{3412a4db-962c-40f9-8313-a8ebd0feab86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game States">
+      <UniqueIdentifier>{e0e83b26-d563-418c-9023-58a124225e4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Resource Management">
+      <UniqueIdentifier>{5b119f65-f102-41ea-84d7-96fcbc0a7189}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Object States">
+      <UniqueIdentifier>{f0605e7e-a364-4f93-a98d-4299dedb3f6e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="test.lua">
-      <Filter>Source Files</Filter>
+      <Filter>Script Files</Filter>
     </None>
   </ItemGroup>
 </Project>
