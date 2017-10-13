@@ -37,12 +37,12 @@
     <Filter Include="Source Files\ObjectStates">
       <UniqueIdentifier>{baec7d4a-307b-4624-9649-3f6b389fa384}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Scripts">
-      <UniqueIdentifier>{b34e492d-4771-4854-b0a4-9acbf19e37af}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
+    <Text Include="new_test.lua">
+      <Filter>Source Files</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -105,6 +105,15 @@
     <ClInclude Include="PlayerOwnedStates.h">
       <Filter>Header Files\ObjectStates</Filter>
     </ClInclude>
+    <ClInclude Include="Food.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Stat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -146,13 +155,19 @@
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Food.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Stat.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Scripts\new_test.lua">
-      <Filter>Source Files\Scripts</Filter>
-    </None>
-    <None Include="Scripts\test.lua">
-      <Filter>Source Files\Scripts</Filter>
+    <None Include="test.lua">
+      <Filter>Source Files</Filter>
     </None>
   </ItemGroup>
 </Project>
