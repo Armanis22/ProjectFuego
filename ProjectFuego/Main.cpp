@@ -42,10 +42,7 @@ int main()
 		}
 
 		luaL_openlibs(L);
-		puts("What the fuck mang!");
-		printf("also hello");
 
-		lua_close(L);
 	//end of tut lua
 	//start of game ai book lua
 		/*lua_State* pL = luaL_newstate();
@@ -97,5 +94,7 @@ int main()
 		game.Draw(&window);
 		window.display();	
 	}
+	lua_close(L);
+
 	return 0;
 }

@@ -38,14 +38,14 @@ class CharacterObject :
 public:
 	CharacterObject(sf::Vector2f pos);
 
-	FacingDirection GetFacingDirection()			{ return m_facingDirection; }
+	FacingDirection GetFacingDirection()					{ return m_facingDirection; }
 	void			SetFacingDirection(FacingDirection dir) { m_facingDirection = dir; }
-	void			SetPreviousFacing()				{ m_preciousFacingDirection = m_facingDirection; }
-	FacingDirection	GetPreviousFacing()				{ return m_preciousFacingDirection; }
+	void			SetPreviousFacing()						{ m_preciousFacingDirection = m_facingDirection; }
+	FacingDirection	GetPreviousFacing()						{ return m_preciousFacingDirection; }
 
-	std::unique_ptr<ObjectStateMachine>& GetFSM()	{ return m_StateMachine; }
+	std::unique_ptr<ObjectStateMachine>& GetFSM()			{ return m_StateMachine; }
 
-	virtual Animation& GetAnimation	()				{ return m_animation; }
+	virtual Animation& GetAnimation	()						{ return m_animation; }
 	void CreateAnimation			(FacingDirection direction, ActionRow row, ActionColumns column);
 
 	void WalkAnimation();

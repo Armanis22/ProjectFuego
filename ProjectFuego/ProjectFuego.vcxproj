@@ -149,7 +149,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
-    <Text Include="new_test.lua" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
@@ -161,7 +160,7 @@
     <ClInclude Include="Game_State.h" />
     <ClInclude Include="GlobalConsts.h" />
     <ClInclude Include="InputHolder.h" />
-    <ClInclude Include="Monster.h" />
+    <ClInclude Include="Pet.h" />
     <ClInclude Include="ObjectState.h" />
     <ClInclude Include="ObjectStateMachine.h" />
     <ClInclude Include="Player.h" />
@@ -184,7 +183,7 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Game_State.cpp" />
     <ClCompile Include="InputHolder.cpp" />
-    <ClCompile Include="Monster.cpp" />
+    <ClCompile Include="Pet.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerOwnedStates.cpp" />
     <ClCompile Include="Playing_State.cpp" />
@@ -200,7 +199,8 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="test.lua" />
+    <None Include="Scripts\new_test.lua" />
+    <None Include="Scripts\test.lua" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

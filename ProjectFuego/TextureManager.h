@@ -7,7 +7,8 @@
 
 enum class TextureName
 {
-		CHARACTERONE
+		CHARACTERONE,
+		SKELETON
 };
 
 class TextureManager : public ResourceManager<TextureName, sf::Texture>
@@ -15,7 +16,8 @@ class TextureManager : public ResourceManager<TextureName, sf::Texture>
 public:
 	TextureManager()
 	{
-		addResource(TextureName::CHARACTERONE, "Assets/Textures/characterone.png");
+		addResource(TextureName::CHARACTERONE, "Assets/CharSprites/characterone.png");
+		addResource(TextureName::SKELETON, "Assets/CharSprites/skeleton.png");
 
 	}
 };

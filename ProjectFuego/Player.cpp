@@ -19,11 +19,6 @@ Player::Player(sf::Vector2f pos) :
 
 }
 
-void Player::Draw(sf::RenderWindow * window)
-{
-	window->draw(m_sprite);
-}
-
 void Player::Update(float dt)
 {
 	Input();

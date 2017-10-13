@@ -10,9 +10,6 @@
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Monster.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -49,6 +46,9 @@
     <ClCompile Include="InputHolder.cpp">
       <Filter>Source Files\Resource Management</Filter>
     </ClCompile>
+    <ClCompile Include="Pet.cpp">
+      <Filter>Source Files\Game Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -61,9 +61,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GlobalConsts.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Monster.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Random.h">
@@ -120,12 +117,12 @@
     <ClInclude Include="PlayerOwnedStates.h">
       <Filter>Header Files\Object States</Filter>
     </ClInclude>
+    <ClInclude Include="Pet.h">
+      <Filter>Header Files\Game Objects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
-    <Text Include="new_test.lua">
-      <Filter>Script Files</Filter>
-    </Text>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
@@ -163,7 +160,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="test.lua">
+    <None Include="Scripts\new_test.lua">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Scripts\test.lua">
       <Filter>Script Files</Filter>
     </None>
   </ItemGroup>

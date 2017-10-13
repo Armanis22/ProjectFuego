@@ -12,8 +12,8 @@ class GameObject
 public:
 	GameObject(sf::Vector2f pos);
 
-	virtual void	Update	(float dt);
-	virtual void	Draw	(sf::RenderWindow* window) = 0;
+	virtual void	Update	(float dt) = 0;
+	virtual void	Draw	(sf::RenderWindow* window);
 
 protected:
 	sf::RectangleShape m_sprite;
