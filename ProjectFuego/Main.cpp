@@ -12,6 +12,7 @@
 #include "GlobalConsts.h"
 #include "Player.h"
 #include "InputHolder.h"
+#include "MouseManager.h"
 
 //extern "C"
 //{
@@ -29,6 +30,8 @@ int main()
 
 	sf::Clock clock;
 	Random::init();
+	MouseManager::Instance().Init(window);
+	
 
 
 	//lua test shit

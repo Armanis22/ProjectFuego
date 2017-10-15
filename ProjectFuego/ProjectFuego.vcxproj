@@ -160,6 +160,7 @@
     <ClInclude Include="Game_State.h" />
     <ClInclude Include="GlobalConsts.h" />
     <ClInclude Include="InputHolder.h" />
+    <ClInclude Include="MouseManager.h" />
     <ClInclude Include="Pet.h" />
     <ClInclude Include="ObjectState.h" />
     <ClInclude Include="ObjectStateMachine.h" />
@@ -183,6 +184,7 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Game_State.cpp" />
     <ClCompile Include="InputHolder.cpp" />
+    <ClCompile Include="MouseManager.cpp" />
     <ClCompile Include="Pet.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerOwnedStates.cpp" />

@@ -12,6 +12,7 @@ public:
 
 	const	std::unordered_map<int,bool>&	GetKeysPressed()	const;
 
+
 private:
 	std::unordered_map<int, bool> keys;
 };

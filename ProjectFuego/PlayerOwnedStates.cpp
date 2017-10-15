@@ -16,14 +16,23 @@ void StandingState::Enter(CharacterObject & owner)
 
 void StandingState::Input(CharacterObject & owner)
 {
-	
+
+	if (MouseManager::Instance().IsMouseRightPressed())
+	{
+		owner.SetPosition(MouseManager::Instance().MousePosition());
+	}
+
+
+	/*
+	------ Old WASD movement stuff
+
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) ||
 		sf::Keyboard::isKeyPressed(sf::Keyboard::S) ||
 		sf::Keyboard::isKeyPressed(sf::Keyboard::D) ||
 		sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 	{
 		owner.GetFSM()->ChangeState(WalkingState::Instance());
-	}
+	}*/
 }
 
 void StandingState::Update(CharacterObject & owner, float dt)

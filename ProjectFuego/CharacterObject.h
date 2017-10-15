@@ -43,6 +43,8 @@ public:
 	void			SetPreviousFacing()						{ m_previousFacingDirection = m_facingDirection; }
 	FacingDirection	GetPreviousFacing()						{ return m_previousFacingDirection; }
 
+	void SetPosition(sf::Vector2f newPos) { m_sprite.setPosition(newPos); }
+
 	std::unique_ptr<ObjectStateMachine>& GetFSM()			{ return m_StateMachine; }
 
 	virtual Animation& GetAnimation	()						{ return m_animation; }

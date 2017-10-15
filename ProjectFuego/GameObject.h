@@ -2,7 +2,7 @@
 
 #include <memory>
 #include "SFML\Graphics.hpp"
-#include "InputHolder.h"
+#include "MouseManager.h"
 #include "ResourceHolder.h"
 #include "GlobalConsts.h"
 #include "Animation.h"

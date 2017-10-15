@@ -30,6 +30,8 @@ const std::unordered_map<int, bool>& InputManager::GetKeysPressed() const
 	return keys;
 }
 
+
+
  const size_t InputManager::GetNumberOfKeys() const
  {
 	 return keys.size();

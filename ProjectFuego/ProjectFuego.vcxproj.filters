@@ -49,6 +49,7 @@
     <ClCompile Include="Pet.cpp">
       <Filter>Source Files\Game Objects</Filter>
     </ClCompile>
+    <ClCompile Include="MouseManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -119,6 +120,9 @@
     </ClInclude>
     <ClInclude Include="Pet.h">
       <Filter>Header Files\Game Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="MouseManager.h">
+      <Filter>Header Files\Recource Management</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
