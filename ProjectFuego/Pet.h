@@ -3,6 +3,7 @@
 #include <vector>
 #include "CharacterObject.h"
 #include "ObjectStateMachine.h"
+#include "AIOwnedStates.h"
 
 enum class Type
 {
@@ -22,6 +23,7 @@ public:
 	~Pet();
 
 	void Update(float dt);
+	void Input();
 
 	void RollBaseStats(); //loop for stat init
 	void InitializeStat(int statNum); //For setting stat (Str, Def, etc) pass in number for a switch to create a stat

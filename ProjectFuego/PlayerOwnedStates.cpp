@@ -23,7 +23,6 @@ void StandingState::Input(CharacterObject & owner)
 		owner.GetFSM()->ChangeState(WalkingState::Instance());
 	}
 
-
 	/*
 	------ Old WASD movement stuff
 
