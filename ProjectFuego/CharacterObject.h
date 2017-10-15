@@ -57,6 +57,8 @@ public:
 	void SetMoveDestination(sf::Vector2f newPosition);
 	void CalculateFacingDirection();
 	sf::Vector2f CurrentPosition() { return m_sprite.getPosition(); }
+	sf::Vector2f GetDistination() { return m_moveDistination; }
+	sf::Vector2f DistanceToDestination() { return m_moveDistination - m_sprite.getPosition(); }
 
 protected:
 

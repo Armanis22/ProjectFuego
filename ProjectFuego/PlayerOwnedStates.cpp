@@ -20,8 +20,7 @@ void StandingState::Input(CharacterObject & owner)
 	{
 		owner.SetMoveDestination(MouseManager::Instance().MousePosition());
 		owner.CalculateFacingDirection();
-		
-		//owner.GetFSM()->ChangeState(WalkingState::Instance());
+		owner.GetFSM()->ChangeState(WalkingState::Instance());
 	}
 
 
@@ -62,11 +61,33 @@ WalkingState* WalkingState::Instance()
 void WalkingState::Enter(CharacterObject & owner)
 {
 	owner.GetAnimation().ClearFrames();
-
+	printf("Entered Walking\n");
 }
 
 void WalkingState::Input(CharacterObject & owner)
 {
+	if (/*!MouseManager::Instance().IsMouseRightPressed() ||*/
+		owner.GetDistination() == owner.CurrentPosition())
+	{
+		owner.GetFSM()->ChangeState(StandingState::Instance());
+	}
+	else
+	{
+		//owner.SetMoveDestination(MouseManager::Instance().MousePosition());
+		owner.CalculateFacingDirection();
+	}
+	if (MouseManager::Instance().IsMouseRightPressed())
+	{
+		owner.SetMoveDestination(MouseManager::Instance().MousePosition());
+		owner.CalculateFacingDirection();
+	}
+
+
+	/*
+	
+	
+	----- This is all for the old WASD movement
+	
 	if (!sf::Keyboard::isKeyPressed(sf::Keyboard::A) &&
 		!sf::Keyboard::isKeyPressed(sf::Keyboard::S) &&
 		!sf::Keyboard::isKeyPressed(sf::Keyboard::D) &&
@@ -115,7 +136,7 @@ void WalkingState::Input(CharacterObject & owner)
 	default:
 		owner.SetMoveVector(0, 0);
 		break;
-	}
+	}*/
 }
 
 void WalkingState::Update(CharacterObject & owner, float dt)
@@ -125,7 +146,15 @@ void WalkingState::Update(CharacterObject & owner, float dt)
 		owner.GetAnimation().ClearFrames();
 	}
 	owner.WalkAnimation();
-	owner.MoveSprite(dt);
+	if (Vector2::Length(owner.DistanceToDestination()) < 5)
+	{
+		printf("Distance %f\n", Vector2::Length(owner.DistanceToDestination()));
+		owner.GetFSM()->ChangeState(StandingState::Instance());
+	}
+	else
+	{
+		owner.MoveSprite(dt);
+	}
 }
 
 void WalkingState::Exit(CharacterObject & owner)

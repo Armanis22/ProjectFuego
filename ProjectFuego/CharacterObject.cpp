@@ -24,7 +24,7 @@ void CharacterObject::WalkAnimation()
 
 void CharacterObject::MoveSprite(float dt)
 {
-	m_sprite.move({ m_moveDirection.x * dt, m_moveDirection.y * dt });
+	m_sprite.move({ m_moveDirection.x * MOVESPEED * dt, m_moveDirection.y * MOVESPEED * dt });
 
 }
 
@@ -43,8 +43,7 @@ void CharacterObject::SetMoveDestination(sf::Vector2f newPosition)
 
 void CharacterObject::CalculateFacingDirection()
 {
-	printf("Normalized Direction: (%f,%f)\n", m_moveDirection.x, m_moveDirection.y);
-	
+	//printf("Normalized Direction: (%f,%f)\n", m_moveDirection.x, m_moveDirection.y);
 	if (m_moveDirection.x > abs(m_moveDirection.y))
 	{
 		SetFacingDirection(FacingDirection::RIGHT);

@@ -13,6 +13,7 @@ namespace Vector2
 
 
 
+	// CAREFUL with this one, normalizes the vector you feed it
 
 	void Normalize(sf::Vector2f& vec)
 	{
