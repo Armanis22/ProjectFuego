@@ -11,6 +11,7 @@ Pet::Pet(sf::Vector2f pos, TextureName texture) :
 {
 	//Begin by initializing the base stats
 	RollBaseStats();
+	m_StateMachine = std::make_unique<ObjectStateMachine>(*this);
 	m_monsterType = Type::NORMAL; //change this later, if we want to take a specific type (Alternate constructor maybe)
 	m_hunger = new Stat("Hunger", 0, 20);
 
@@ -22,13 +23,11 @@ Pet::Pet(sf::Vector2f pos, TextureName texture) :
 
 	m_sprite.setSize({ 64,64 });
 	m_sprite.setScale(2, 2);
-	m_sprite.setTextureRect(sf::IntRect(64 * 0, 64 * 2, 64, 64));
+	//m_sprite.setTextureRect(sf::IntRect(64 * 0, 64 * 2, 64, 64));
 	
 	m_facingDirection = FacingDirection::DOWN;
 	m_currentAction = ActionRow::WALKING;
-	
-	// ahead of myself, pet doesn't have a working state machine
-	//m_StateMachine->SetCurrentState(StandingState::Instance());
+	m_StateMachine->SetCurrentState(AIStandingState::Instance());
 }
 
 
@@ -45,6 +44,16 @@ Pet::~Pet()
 
 void Pet::Update(float dt)
 {
+	Input(); 
+	GetFSM()->Update(dt);
+	m_sprite.setTextureRect(m_animation.getFrame(dt));
+	SetPreviousFacing();
+}
+
+void Pet::Input()
+{
+	//This will eventually look for player inputs to pick/throw/use skills whatever
+	GetFSM()->Input();
 }
 
 void Pet::RollBaseStats()

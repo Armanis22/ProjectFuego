@@ -12,6 +12,7 @@ public:
 
 
 	const bool IsMouseRightPressed() const;
+	const bool IsMouseLeftPressed() const;
 	const sf::Vector2f MousePosition() const;
 
 private:

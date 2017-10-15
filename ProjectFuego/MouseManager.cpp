@@ -24,6 +24,18 @@ const bool MouseManager::IsMouseRightPressed() const
 	}
 }
 
+const bool MouseManager::IsMouseLeftPressed() const
+{
+	if (!sf::Mouse::isButtonPressed(sf::Mouse::Left))
+	{
+		return false;
+	}
+	else
+	{
+		return true;
+	}
+}
+
 const sf::Vector2f MouseManager::MousePosition() const
 {
 	return static_cast<sf::Vector2f>(sf::Mouse::getPosition(*pmWindow));

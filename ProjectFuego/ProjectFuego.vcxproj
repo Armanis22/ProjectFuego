@@ -151,6 +151,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AIOwnedStates.h" />
     <ClInclude Include="Animation.h" />
     <ClInclude Include="CharacterObject.h" />
     <ClInclude Include="FontManager.h" />
@@ -168,6 +169,7 @@
     <ClInclude Include="PlayerOwnedStates.h" />
     <ClInclude Include="Playing_State.h" />
     <ClInclude Include="Random.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="ResourceHolder.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="SoundManager.h" />
@@ -178,6 +180,7 @@
     <ClInclude Include="Vector2.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AIOwnedStates.cpp" />
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="CharacterObject.cpp" />
     <ClCompile Include="Food.cpp" />
@@ -203,6 +206,9 @@
   <ItemGroup>
     <None Include="Scripts\new_test.lua" />
     <None Include="Scripts\test.lua" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ProjectFuego.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

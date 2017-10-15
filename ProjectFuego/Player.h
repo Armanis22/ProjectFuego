@@ -9,12 +9,10 @@ class Player :
 {
 public:
 	Player(sf::Vector2f pos);
-	
-	//void Draw(sf::RenderWindow* window);
+
 	void Update(float dt);
 
 	void Input();
-
 private:
 
 };
