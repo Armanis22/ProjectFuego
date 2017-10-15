@@ -148,6 +148,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <Text Include="changelist.txt" />
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -175,9 +176,11 @@
     <ClInclude Include="SoundManager.h" />
     <ClInclude Include="Stat.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="SteeringBehaviors.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Vector2.h" />
+    <ClInclude Include="Vehicle.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AIOwnedStates.cpp" />
@@ -202,6 +205,8 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="SteeringBehaviors.cpp" />
+    <ClCompile Include="Vehicle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\new_test.lua" />

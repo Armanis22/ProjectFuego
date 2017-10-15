@@ -52,6 +52,12 @@
     <ClCompile Include="Animation.cpp">
       <Filter>Source Files\Resource Management</Filter>
     </ClCompile>
+    <ClCompile Include="SteeringBehaviors.cpp">
+      <Filter>Source Files\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="Vehicle.cpp">
+      <Filter>Source Files\Game Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -133,9 +139,16 @@
     <ClInclude Include="AIOwnedStates.h">
       <Filter>Header Files\Object States</Filter>
     </ClInclude>
+    <ClInclude Include="SteeringBehaviors.h">
+      <Filter>Header Files\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="Vehicle.h">
+      <Filter>Header Files\Game Objects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
+    <Text Include="changelist.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
@@ -170,6 +183,12 @@
     </Filter>
     <Filter Include="Source Files\Object States">
       <UniqueIdentifier>{f0605e7e-a364-4f93-a98d-4299dedb3f6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\AI">
+      <UniqueIdentifier>{311f7d12-8bec-44a5-bc46-fcad7ba961f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\AI">
+      <UniqueIdentifier>{af04f3d6-4bc6-4dc0-8c2d-5dc1bcd2bf54}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

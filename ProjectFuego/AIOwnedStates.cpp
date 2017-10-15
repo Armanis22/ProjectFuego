@@ -67,7 +67,7 @@ void AIWalkingState::Input(CharacterObject & owner)
 {
 	//This class should be taking commands from an AIController, TEMP
 
-	if (owner.GetDistination() == owner.CurrentPosition())
+	if (owner.GetDestination() == owner.CurrentPosition())
 	{
 		owner.GetFSM()->ChangeState(AIStandingState::Instance());
 	}
@@ -109,5 +109,28 @@ void AIWalkingState::Update(CharacterObject & owner, float dt)
 void AIWalkingState::Exit(CharacterObject & owner)
 {
 	owner.GetAnimation().ClearFrames();
+}
+
+AISeekState* AISeekState::Instance()
+{
+	static AISeekState state;
+	return &state;
+}
+
+void AISeekState::Enter(CharacterObject& owner)
+{
+
+}
+
+void AISeekState::Input(CharacterObject& owner)
+{
+}
+
+void AISeekState::Update(CharacterObject& owner, float dt)
+{
+}
+
+void AISeekState::Exit(CharacterObject& owner)
+{
 }
 

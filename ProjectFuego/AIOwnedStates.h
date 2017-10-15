@@ -23,3 +23,14 @@ public:
 	virtual void Update(CharacterObject& owner, float dt);
 	virtual void Exit(CharacterObject& owner);
 };
+
+class AISeekState : public ObjectState
+{
+public:
+	static AISeekState* Instance();
+
+	virtual void Enter(CharacterObject& owner);
+	virtual void Input(CharacterObject& owner);
+	virtual void Update(CharacterObject& owner, float dt);
+	virtual void Exit(CharacterObject& owner);
+};

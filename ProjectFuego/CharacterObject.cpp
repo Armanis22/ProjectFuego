@@ -3,9 +3,23 @@
 
 
 CharacterObject::CharacterObject(sf::Vector2f pos) :
-	GameObject::GameObject(pos)
+	GameObject::GameObject(pos), 
+	m_velocity(sf::Vector2f(0.f,0.f)), 
+	//Below are temporary, will need to be setup (maybe lua) as mass and such will depend on the entity
+	m_mass(10.0),
+	m_heading(sf::Vector2f(0.f, 0.f)),
+	m_maxForce(20.0),
+	m_maxTurnRate(10.0)
 {
 	m_sprite.setOrigin(32, 32);
+}
+
+void CharacterObject::SetHeading(sf::Vector2f newHeading)
+{
+	m_heading = newHeading;
+
+	//Move the side vector to account for the new heading
+	m_sideVector = Vector2::Perp(m_heading);
 }
 
 void CharacterObject::CreateAnimation(FacingDirection direction, ActionRow row, ActionColumns column)
@@ -35,9 +49,9 @@ void CharacterObject::SetMoveVector(float x, float y)
 
 void CharacterObject::SetMoveDestination(sf::Vector2f newPosition)
 {
-	m_moveDistination = newPosition;
-	m_moveDirection.x = m_moveDistination.x - m_sprite.getPosition().x;
-	m_moveDirection.y = m_moveDistination.y - m_sprite.getPosition().y;
+	m_moveDestination = newPosition;
+	m_moveDirection.x = m_moveDestination.x - m_sprite.getPosition().x;
+	m_moveDirection.y = m_moveDestination.y - m_sprite.getPosition().y;
 	Vector2::Normalize(m_moveDirection);
 }
 

@@ -66,7 +66,7 @@ void WalkingState::Enter(CharacterObject & owner)
 void WalkingState::Input(CharacterObject & owner)
 {
 	if (/*!MouseManager::Instance().IsMouseRightPressed() ||*/
-		owner.GetDistination() == owner.CurrentPosition())
+		owner.GetDestination() == owner.CurrentPosition())
 	{
 		owner.GetFSM()->ChangeState(StandingState::Instance());
 	}
