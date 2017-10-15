@@ -147,7 +147,6 @@ void WalkingState::Update(CharacterObject & owner, float dt)
 	owner.WalkAnimation();
 	if (Vector2::Length(owner.DistanceToDestination()) < 5)
 	{
-		printf("Distance %f\n", Vector2::Length(owner.DistanceToDestination()));
 		owner.GetFSM()->ChangeState(StandingState::Instance());
 	}
 	else
