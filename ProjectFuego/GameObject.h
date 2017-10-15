@@ -6,6 +6,7 @@
 #include "ResourceHolder.h"
 #include "GlobalConsts.h"
 #include "Animation.h"
+#include "Vector2.h"
 
 class GameObject
 {

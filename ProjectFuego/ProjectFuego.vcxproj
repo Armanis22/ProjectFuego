@@ -175,6 +175,7 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TextureManager.h" />
+    <ClInclude Include="Vector2.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
@@ -190,7 +191,6 @@
     <ClCompile Include="PlayerOwnedStates.cpp" />
     <ClCompile Include="Playing_State.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Random.cpp" />
     <ClCompile Include="ResourceHolder.cpp" />
     <ClCompile Include="Stat.cpp" />
     <ClCompile Include="stdafx.cpp">

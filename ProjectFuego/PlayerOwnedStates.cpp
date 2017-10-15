@@ -10,7 +10,6 @@ StandingState* StandingState::Instance()
 
 void StandingState::Enter(CharacterObject & owner)
 {
-	printf("entered standing\n");
 	owner.GetAnimation().addFrame({ 0,64 * static_cast<int>(owner.GetFacingDirection()),64,64 }, .1f);
 }
 
@@ -19,7 +18,10 @@ void StandingState::Input(CharacterObject & owner)
 
 	if (MouseManager::Instance().IsMouseRightPressed())
 	{
-		owner.SetPosition(MouseManager::Instance().MousePosition());
+		owner.SetMoveDestination(MouseManager::Instance().MousePosition());
+		owner.CalculateFacingDirection();
+		
+		//owner.GetFSM()->ChangeState(WalkingState::Instance());
 	}
 
 
@@ -59,8 +61,6 @@ WalkingState* WalkingState::Instance()
 
 void WalkingState::Enter(CharacterObject & owner)
 {
-	printf("entered walking\n");
-
 	owner.GetAnimation().ClearFrames();
 
 }

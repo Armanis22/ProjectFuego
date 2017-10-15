@@ -54,6 +54,9 @@ public:
 
 	void MoveSprite(float dt);
 	void SetMoveVector(float x, float y);
+	void SetMoveDestination(sf::Vector2f newPosition);
+	void CalculateFacingDirection();
+	sf::Vector2f CurrentPosition() { return m_sprite.getPosition(); }
 
 protected:
 
@@ -65,5 +68,7 @@ protected:
 	ActionRow m_currentAction;
 
 	sf::Vector2f m_moveDirection;
+	sf::Vector2f m_moveDistination;
+
 };
 
