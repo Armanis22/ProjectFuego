@@ -11,6 +11,7 @@ StandingState* StandingState::Instance()
 void StandingState::Enter(CharacterObject & owner)
 {
 	owner.GetAnimation().addFrame({ 0,64 * static_cast<int>(owner.GetFacingDirection()),64,64 }, .1f);
+	owner.SetVelocity({ 0, 0});
 }
 
 void StandingState::Input(CharacterObject & owner)
@@ -21,7 +22,7 @@ void StandingState::Input(CharacterObject & owner)
 		owner.SetPosition(owner.CurrentPosition());
 		owner.SetMoveDirection(MouseManager::Instance().MousePosition());
 		owner.CalculateFacingDirection();
-		owner.SetAcceleration(100);
+		owner.SetAcceleration(500);
 		owner.GetFSM()->ChangeState(WalkingState::Instance());
 	}
 
@@ -44,6 +45,7 @@ void StandingState::Update(CharacterObject & owner, float dt)
 		owner.GetAnimation().ClearFrames();
 		owner.GetAnimation().addFrame({ 0,64 * static_cast<int>(owner.GetFacingDirection()),64,64 }, .1f);
 	}
+	
 }
 
 void StandingState::Exit(CharacterObject & owner)
@@ -79,8 +81,14 @@ void WalkingState::Input(CharacterObject & owner)
 	}
 	if (MouseManager::Instance().IsMouseRightPressed())
 	{
+		
+		owner.SetPosition(owner.CurrentPosition());
+		owner.SetVelocity({ 0, 0 });
+
+
 		owner.SetMoveDirection(MouseManager::Instance().MousePosition());
 		owner.CalculateFacingDirection();
+
 	}
 
 
@@ -142,6 +150,8 @@ void WalkingState::Input(CharacterObject & owner)
 
 void WalkingState::Update(CharacterObject & owner, float dt)
 {	
+	//owner.ApplyDrag(dt);
+	owner.CheckRangeToTarget(dt);
 	if (owner.GetPreviousFacing() != owner.GetFacingDirection())
 	{
 		owner.GetAnimation().ClearFrames();

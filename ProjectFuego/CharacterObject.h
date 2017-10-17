@@ -73,6 +73,7 @@ public:
 	void SetAcceleration(float accel);
 	void ApplyDrag(float dt);
 	void LimitVelocity(float dt);
+	void CheckRangeToTarget(float dt);
 
 
 	void SetPosition(sf::Vector2f newPos) {

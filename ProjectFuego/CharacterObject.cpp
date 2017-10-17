@@ -36,16 +36,31 @@ void CharacterObject::SetAcceleration(float accel)
 {
 	//if (accel > 0)
 	//{
-		m_acceleration = sf::Vector2f({ accel + m_moveDirection.x, -accel + m_moveDirection.y });
+	printf("(%f,%f)\n", m_moveDirection.x, m_moveDirection.y);
+
+		m_acceleration = sf::Vector2f({ accel * m_moveDirection.x, accel * m_moveDirection.y });
 	//}
 }
 
 void CharacterObject::ApplyDrag(float dt)
 {
+	puts("called");
+	float _friction = 10.f;
+	sf::Vector2f _drag = _friction * m_velocity * dt;
+	m_velocity -= _drag;
 }
 
 void CharacterObject::LimitVelocity(float dt)
 {
+}
+
+void CharacterObject::CheckRangeToTarget(float dt)
+{
+	if ( Vector2::LengthSq(m_moveDestination - m_pos) < 1500)
+	{
+		ApplyDrag(dt);
+		SetAcceleration(0);
+	}
 }
 
 void CharacterObject::CreateAnimation(FacingDirection direction, ActionRow row, ActionColumns column)
@@ -85,7 +100,6 @@ void CharacterObject::SetMoveDirection(sf::Vector2f newPosition)
 	m_moveDirection.x = m_moveDestination.x - m_sprite.getPosition().x;
 	m_moveDirection.y = m_moveDestination.y - m_sprite.getPosition().y;
 	Vector2::Normalize(m_moveDirection);
-	printf("(%f,%f)\n", m_moveDirection.x, m_moveDirection.y);
 
 }
 
