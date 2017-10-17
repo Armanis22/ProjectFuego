@@ -75,7 +75,10 @@ public:
 	void LimitVelocity(float dt);
 
 
-	void SetPosition(sf::Vector2f newPos) { m_sprite.setPosition(newPos); }
+	void SetPosition(sf::Vector2f newPos) {
+		m_sprite.setPosition(newPos);
+		m_pos = m_sprite.getPosition();
+	}
 
 	std::unique_ptr<ObjectStateMachine>& GetFSM()			{ return m_StateMachine; }
 

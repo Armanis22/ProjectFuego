@@ -18,6 +18,7 @@ void StandingState::Input(CharacterObject & owner)
 
 	if (MouseManager::Instance().IsMouseRightPressed())
 	{
+		owner.SetPosition(owner.CurrentPosition());
 		owner.SetMoveDirection(MouseManager::Instance().MousePosition());
 		owner.CalculateFacingDirection();
 		owner.SetAcceleration(100);

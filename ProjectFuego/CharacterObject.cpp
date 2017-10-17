@@ -69,7 +69,6 @@ void CharacterObject::MoveSprite(float dt)
 	m_velocity += m_acceleration * dt;
 
 	LimitVelocity(dt);
-	printf("(%f,%f)\n", m_acceleration.x, m_acceleration.y);
 	m_pos += m_velocity * dt;
 	m_sprite.setPosition(m_pos);
 
@@ -86,6 +85,8 @@ void CharacterObject::SetMoveDirection(sf::Vector2f newPosition)
 	m_moveDirection.x = m_moveDestination.x - m_sprite.getPosition().x;
 	m_moveDirection.y = m_moveDestination.y - m_sprite.getPosition().y;
 	Vector2::Normalize(m_moveDirection);
+	printf("(%f,%f)\n", m_moveDirection.x, m_moveDirection.y);
+
 }
 
 void CharacterObject::CalculateFacingDirection()
