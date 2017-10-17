@@ -1,3 +1,8 @@
+-bh (10-16-17)
+-added some physics stuff to get rolling. variables/functions
+-fixed double to float errors
+
+
 Beginning Change log, (10.15.17)
 
 Codey's Changes:

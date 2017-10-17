@@ -37,6 +37,7 @@ class CharacterObject :
 {
 public:
 	CharacterObject(sf::Vector2f pos);
+	void Update(float dt);
 
 	FacingDirection GetFacingDirection()					{ return m_facingDirection; }
 	void			SetFacingDirection(FacingDirection dir) { m_facingDirection = dir; }
@@ -67,6 +68,13 @@ public:
 
 	//=============================================================================
 
+	// -bh
+	// Functions for some of the physics aspects
+	void SetAcceleration(float accel);
+	void ApplyDrag(float dt);
+	void LimitVelocity(float dt);
+
+
 	void SetPosition(sf::Vector2f newPos) { m_sprite.setPosition(newPos); }
 
 	std::unique_ptr<ObjectStateMachine>& GetFSM()			{ return m_StateMachine; }
@@ -78,7 +86,7 @@ public:
 
 	void MoveSprite(float dt);
 	void SetMoveVector(float x, float y);
-	void SetMoveDestination(sf::Vector2f newPosition);
+	void SetMoveDirection(sf::Vector2f newPosition);
 	void CalculateFacingDirection();
 	sf::Vector2f CurrentPosition() { return m_sprite.getPosition(); }
 	sf::Vector2f GetDestination() { return m_moveDestination; }
@@ -97,6 +105,8 @@ protected:
 	sf::Vector2f m_moveDestination;
 
 	//New members for steering behaviors
+	sf::Vector2f m_pos;
+	sf::Vector2f m_acceleration;
 	sf::Vector2f m_velocity;
 	sf::Vector2f m_heading;
 	sf::Vector2f m_sideVector;

@@ -18,8 +18,9 @@ void StandingState::Input(CharacterObject & owner)
 
 	if (MouseManager::Instance().IsMouseRightPressed())
 	{
-		owner.SetMoveDestination(MouseManager::Instance().MousePosition());
+		owner.SetMoveDirection(MouseManager::Instance().MousePosition());
 		owner.CalculateFacingDirection();
+		owner.SetAcceleration(100);
 		owner.GetFSM()->ChangeState(WalkingState::Instance());
 	}
 
@@ -72,12 +73,12 @@ void WalkingState::Input(CharacterObject & owner)
 	}
 	else
 	{
-		//owner.SetMoveDestination(MouseManager::Instance().MousePosition());
+		//owner.SetMoveDirection(MouseManager::Instance().MousePosition());
 		owner.CalculateFacingDirection();
 	}
 	if (MouseManager::Instance().IsMouseRightPressed())
 	{
-		owner.SetMoveDestination(MouseManager::Instance().MousePosition());
+		owner.SetMoveDirection(MouseManager::Instance().MousePosition());
 		owner.CalculateFacingDirection();
 	}
 
@@ -153,6 +154,7 @@ void WalkingState::Update(CharacterObject & owner, float dt)
 	{
 		owner.MoveSprite(dt);
 	}
+	//owner.Update(dt);
 }
 
 void WalkingState::Exit(CharacterObject & owner)

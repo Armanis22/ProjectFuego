@@ -7,7 +7,8 @@
 namespace Vector2
 {
 	inline sf::Vector2f Normalize(sf::Vector2f& vec);
-	inline double Length(sf::Vector2f lhs);
+	
+	inline float Length(sf::Vector2f lhs);
 	inline float LengthSq(sf::Vector2f vec);
 	inline sf::Vector2f Perp(sf::Vector2f vec);
 
@@ -25,14 +26,14 @@ namespace Vector2
 	sf::Vector2f Normalize(sf::Vector2f& vec)
 	{
 		sf::Vector2f v = vec;
-		double len = Length(vec);
+		float len = Length(vec);
 		vec.x /= len;
 		vec.y /= len;
 
 		return v;
 	}
 
-	double Length(sf::Vector2f vec)
+	float Length(sf::Vector2f vec)
 	{
 		return sqrtf(vec.x*vec.x + vec.y*vec.y);
 	}

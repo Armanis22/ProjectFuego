@@ -27,7 +27,7 @@ void AIStandingState::Input(CharacterObject & owner)
 
 	if (MouseManager::Instance().IsMouseLeftPressed())
 	{
-		owner.SetMoveDestination(MouseManager::Instance().MousePosition());
+		owner.SetMoveDirection(MouseManager::Instance().MousePosition());
 		owner.CalculateFacingDirection();
 		owner.GetFSM()->ChangeState(AIWalkingState::Instance());
 	}
@@ -79,7 +79,7 @@ void AIWalkingState::Input(CharacterObject & owner)
 
 	if (MouseManager::Instance().IsMouseLeftPressed())
 	{
-		owner.SetMoveDestination(MouseManager::Instance().MousePosition());
+		owner.SetMoveDirection(MouseManager::Instance().MousePosition());
 		owner.CalculateFacingDirection();
 	}
 

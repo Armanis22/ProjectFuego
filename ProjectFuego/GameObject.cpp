@@ -14,4 +14,5 @@ void GameObject::Draw(sf::RenderWindow * window)
 
 void GameObject::Update(float dt)
 {
+	
 }

@@ -14,12 +14,38 @@ CharacterObject::CharacterObject(sf::Vector2f pos) :
 	m_sprite.setOrigin(32, 32);
 }
 
+void CharacterObject::Update(float dt)
+{
+	/*m_velocity += m_acceleration * dt;
+
+	LimitVelocity(dt);
+	printf("(%f,%f)\n", m_velocity.x, m_velocity.y);
+	m_pos += m_velocity * dt;
+	m_sprite.setPosition(m_pos);*/
+}
+
 void CharacterObject::SetHeading(sf::Vector2f newHeading)
 {
 	m_heading = newHeading;
 
 	//Move the side vector to account for the new heading
 	m_sideVector = Vector2::Perp(m_heading);
+}
+
+void CharacterObject::SetAcceleration(float accel)
+{
+	//if (accel > 0)
+	//{
+		m_acceleration = sf::Vector2f({ accel + m_moveDirection.x, -accel + m_moveDirection.y });
+	//}
+}
+
+void CharacterObject::ApplyDrag(float dt)
+{
+}
+
+void CharacterObject::LimitVelocity(float dt)
+{
 }
 
 void CharacterObject::CreateAnimation(FacingDirection direction, ActionRow row, ActionColumns column)
@@ -38,7 +64,14 @@ void CharacterObject::WalkAnimation()
 
 void CharacterObject::MoveSprite(float dt)
 {
-	m_sprite.move({ m_moveDirection.x * MOVESPEED * dt, m_moveDirection.y * MOVESPEED * dt });
+	
+	//m_sprite.move({ m_moveDirection.x * MOVESPEED * dt, m_moveDirection.y * MOVESPEED * dt });
+	m_velocity += m_acceleration * dt;
+
+	LimitVelocity(dt);
+	printf("(%f,%f)\n", m_acceleration.x, m_acceleration.y);
+	m_pos += m_velocity * dt;
+	m_sprite.setPosition(m_pos);
 
 }
 
@@ -47,7 +80,7 @@ void CharacterObject::SetMoveVector(float x, float y)
 	m_moveDirection = sf::Vector2f(x, y);
 }
 
-void CharacterObject::SetMoveDestination(sf::Vector2f newPosition)
+void CharacterObject::SetMoveDirection(sf::Vector2f newPosition)
 {
 	m_moveDestination = newPosition;
 	m_moveDirection.x = m_moveDestination.x - m_sprite.getPosition().x;
