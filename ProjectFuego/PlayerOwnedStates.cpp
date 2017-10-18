@@ -22,7 +22,7 @@ void StandingState::Input(CharacterObject & owner)
 		owner.SetPosition(owner.CurrentPosition());
 		owner.SetMoveDirection(MouseManager::Instance().MousePosition());
 		owner.CalculateFacingDirection();
-		owner.SetAcceleration(500);
+		owner.SetAcceleration(700);
 		owner.GetFSM()->ChangeState(WalkingState::Instance());
 	}
 
@@ -69,8 +69,7 @@ void WalkingState::Enter(CharacterObject & owner)
 
 void WalkingState::Input(CharacterObject & owner)
 {
-	if (/*!MouseManager::Instance().IsMouseRightPressed() ||*/
-		owner.GetDestination() == owner.CurrentPosition())
+	if (owner.GetDestination() == owner.CurrentPosition())
 	{
 		owner.GetFSM()->ChangeState(StandingState::Instance());
 	}
@@ -82,13 +81,17 @@ void WalkingState::Input(CharacterObject & owner)
 	if (MouseManager::Instance().IsMouseRightPressed())
 	{
 		
-		owner.SetPosition(owner.CurrentPosition());
-		owner.SetVelocity({ 0, 0 });
+		//owner.SetVelocity({ 1, 1 });
+		//owner.SetPosition(owner.CurrentPosition());
 
 
+		//owner.SetMoveDirection(MouseManager::Instance().MousePosition());
+		//owner.CalculateFacingDirection();
+
+		//owner.SetPosition(owner.CurrentPosition());
 		owner.SetMoveDirection(MouseManager::Instance().MousePosition());
 		owner.CalculateFacingDirection();
-
+		owner.SetAcceleration(700);
 	}
 
 
@@ -152,6 +155,7 @@ void WalkingState::Update(CharacterObject & owner, float dt)
 {	
 	//owner.ApplyDrag(dt);
 	owner.CheckRangeToTarget(dt);
+	owner.LimitVelocity(dt);
 	if (owner.GetPreviousFacing() != owner.GetFacingDirection())
 	{
 		owner.GetAnimation().ClearFrames();

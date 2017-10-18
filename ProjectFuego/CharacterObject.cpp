@@ -36,22 +36,33 @@ void CharacterObject::SetAcceleration(float accel)
 {
 	//if (accel > 0)
 	//{
-	printf("(%f,%f)\n", m_moveDirection.x, m_moveDirection.y);
+	//printf("(%f,%f)\n", m_moveDirection.x, m_moveDirection.y);
 
-		m_acceleration = sf::Vector2f({ accel * m_moveDirection.x, accel * m_moveDirection.y });
+	m_acceleration = sf::Vector2f({ accel * m_moveDirection.x, accel * m_moveDirection.y });
 	//}
 }
 
 void CharacterObject::ApplyDrag(float dt)
 {
-	puts("called");
-	float _friction = 10.f;
+	float _friction = 5.f;
 	sf::Vector2f _drag = _friction * m_velocity * dt;
 	m_velocity -= _drag;
 }
 
 void CharacterObject::LimitVelocity(float dt)
 {
+	float _speed = Vector2::Length(m_velocity);
+	if (_speed <= .1)
+	{
+		return;
+	}
+
+	if (_speed > 250)
+	{
+		_speed = 250;
+	}
+
+	m_velocity = m_moveDirection * _speed;
 }
 
 void CharacterObject::CheckRangeToTarget(float dt)
