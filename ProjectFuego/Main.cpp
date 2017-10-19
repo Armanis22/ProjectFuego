@@ -27,7 +27,6 @@ int main()
 	sf::RenderWindow window(sf::VideoMode(SCREENWIDTH, SCREENHEIGHT), "Project Fuego", sf::Style::Titlebar);
 	Game game;
 
-
 	sf::Clock clock;
 	Random::init();
 	MouseManager::Instance().Init(window);

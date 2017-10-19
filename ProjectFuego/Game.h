@@ -23,6 +23,8 @@ public:
 	void Draw(sf::RenderWindow* window);
 	void AddObject(std::shared_ptr<GameObject> object);
 
+	static Game* Instance();
+
 	void PushState(std::unique_ptr<State::Game_State> state);
 	void PopState();
 	void ChangeState(std::unique_ptr<State::Game_State> state);

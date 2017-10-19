@@ -2,8 +2,6 @@
 #include "GameObject.h"
 #include "ObjectStateMachine.h"
 
-class Pet;
-
 enum class FacingDirection
 {
 	UP,
@@ -39,6 +37,7 @@ class CharacterObject :
 {
 public:
 	CharacterObject(sf::Vector2f pos);
+	CharacterObject(sf::Vector2f pos, Game* game);
 	void Update(float dt);
 
 	FacingDirection GetFacingDirection()					{ return m_facingDirection; }
@@ -127,6 +126,7 @@ protected:
 	float								m_maxTurnRate;
 	
 	bool								m_isDestroyed;
+	Game* m_pGameManager;
 
 };
 

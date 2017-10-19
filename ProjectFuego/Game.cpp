@@ -8,10 +8,8 @@
 Game::Game()
 {
 	PushState(std::make_unique<State::Playing_State>(*this));
-	AddObject(std::make_shared<Player>(sf::Vector2f(200, 200)));
+	AddObject(std::make_shared<Player>(sf::Vector2f(200, 200), this));
 	//AddObject(std::make_shared<Pet>(sf::Vector2f(300, 300), TextureName::SKELETON));
-
-
 }
 
 void Game::Update(float dt)
@@ -35,7 +33,15 @@ void Game::Draw(sf::RenderWindow * window)
 
 void Game::AddObject(std::shared_ptr<GameObject> object)
 {
+	puts("called");
 	m_gameObjects.emplace_back(object);
+}
+
+Game * Game::Instance()
+{
+	static Game instance;
+	return &instance;
+	
 }
 
 void Game::PushState(std::unique_ptr<State::Game_State> state)

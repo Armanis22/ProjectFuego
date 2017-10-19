@@ -16,6 +16,22 @@ CharacterObject::CharacterObject(sf::Vector2f pos) :
 	m_sprite.setOrigin(32, 32);
 }
 
+CharacterObject::CharacterObject(sf::Vector2f pos, Game* game) :
+	GameObject::GameObject(pos),
+	m_velocity(sf::Vector2f(0.f, 0.f)),
+	//Below are temporary, will need to be setup (maybe lua) as mass and such will depend on the entity
+	m_mass(10.0),
+	m_heading(sf::Vector2f(0.f, 0.f)),
+	m_maxForce(20.0),
+	m_maxTurnRate(10.0),
+	m_isDestroyed(false),
+	m_pos(pos),
+	m_pGameManager(game)
+{
+	m_sprite.setOrigin(32, 32);
+
+}
+
 void CharacterObject::Update(float dt)
 {
 	/*m_velocity += m_acceleration * dt;
