@@ -2,10 +2,10 @@
 #include "ObjectState.h"
 #include "Pet.h"
 
-class AIStandingState : public ObjectState
+class PetStandingState : public ObjectState
 {
 public:
-	static AIStandingState* Instance();
+	static PetStandingState* Instance();
 
 	virtual void Enter(CharacterObject& owner);
 	virtual void Input(CharacterObject& owner);
@@ -13,10 +13,10 @@ public:
 	virtual void Exit(CharacterObject& owner);
 };
 
-class AIWalkingState : public ObjectState
+class PetWalkingState : public ObjectState
 {
 public:
-	static AIWalkingState* Instance();
+	static PetWalkingState* Instance();
 
 	virtual void Enter(CharacterObject& owner);
 	virtual void Input(CharacterObject& owner);
@@ -24,10 +24,10 @@ public:
 	virtual void Exit(CharacterObject& owner);
 };
 
-class AISeekState : public ObjectState
+class PetSeekState : public ObjectState
 {
 public:
-	static AISeekState* Instance();
+	static PetSeekState* Instance();
 
 	virtual void Enter(CharacterObject& owner);
 	virtual void Input(CharacterObject& owner);

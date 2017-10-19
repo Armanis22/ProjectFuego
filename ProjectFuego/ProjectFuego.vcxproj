@@ -152,7 +152,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AIOwnedStates.h" />
+    <ClInclude Include="PetOwnedStates.h" />
     <ClInclude Include="Animation.h" />
     <ClInclude Include="CharacterObject.h" />
     <ClInclude Include="FontManager.h" />
@@ -183,7 +183,7 @@
     <ClInclude Include="Vehicle.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AIOwnedStates.cpp" />
+    <ClCompile Include="PetOwnedStates.cpp" />
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="CharacterObject.cpp" />
     <ClCompile Include="Food.cpp" />

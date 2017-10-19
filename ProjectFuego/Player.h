@@ -13,7 +13,10 @@ public:
 	void Update(float dt);
 
 	void Input();
+	void AddPet();
+
 private:
+	std::vector<std::shared_ptr<Pet>> m_petList;
 
 };
 

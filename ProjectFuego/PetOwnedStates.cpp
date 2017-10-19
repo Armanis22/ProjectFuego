@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "AIOwnedStates.h"
+#include "PetOwnedStates.h"
 #include <iostream>
 
 //Right now a literal copy of the player owned state (exception of using left mouse for the time being)
@@ -9,18 +9,18 @@
 //Beginning plan, to wander randomly but keep within a certain distance from the player
 //Once enemy is added we'll need for pets to stay a certain larger distance but attack a nearby threat
 
-AIStandingState* AIStandingState::Instance()
+PetStandingState* PetStandingState::Instance()
 {
-	static AIStandingState state;
+	static PetStandingState state;
 	return &state;
 }
 
-void AIStandingState::Enter(CharacterObject & owner)
+void PetStandingState::Enter(CharacterObject & owner)
 {
 	owner.GetAnimation().addFrame({ 0,64 * static_cast<int>(owner.GetFacingDirection()),64,64 }, .1f);
 }
 
-void AIStandingState::Input(CharacterObject & owner)
+void PetStandingState::Input(CharacterObject & owner)
 {
 
 	//This class should be taking commands from an AIController, TEMP
@@ -28,14 +28,14 @@ void AIStandingState::Input(CharacterObject & owner)
 	if (MouseManager::Instance().IsMouseLeftPressed())
 	{
 		owner.SetMoveDirection(MouseManager::Instance().MousePosition());
-		owner.CalculateFacingDirection();
-		owner.GetFSM()->ChangeState(AIWalkingState::Instance());
+		owner.CalculateSpriteFacingDirection();
+		owner.GetFSM()->ChangeState(PetWalkingState::Instance());
 	}
 
 	
 }
 
-void AIStandingState::Update(CharacterObject & owner, float dt)
+void PetStandingState::Update(CharacterObject & owner, float dt)
 {
 	if (owner.GetPreviousFacing() != owner.GetFacingDirection())
 	{
@@ -44,48 +44,48 @@ void AIStandingState::Update(CharacterObject & owner, float dt)
 	}
 }
 
-void AIStandingState::Exit(CharacterObject & owner)
+void PetStandingState::Exit(CharacterObject & owner)
 {
 	owner.GetAnimation().ClearFrames();
 }
 
 
 // All things walking state
-AIWalkingState* AIWalkingState::Instance()
+PetWalkingState* PetWalkingState::Instance()
 {
-	static AIWalkingState state;
+	static PetWalkingState state;
 	return &state;
 }
 
-void AIWalkingState::Enter(CharacterObject & owner)
+void PetWalkingState::Enter(CharacterObject & owner)
 {
 	owner.GetAnimation().ClearFrames();
 	printf("Entered Walking\n");
 }
 
-void AIWalkingState::Input(CharacterObject & owner)
+void PetWalkingState::Input(CharacterObject & owner)
 {
 	//This class should be taking commands from an AIController, TEMP
 
 	if (owner.GetDestination() == owner.CurrentPosition())
 	{
-		owner.GetFSM()->ChangeState(AIStandingState::Instance());
+		owner.GetFSM()->ChangeState(PetStandingState::Instance());
 	}
 
 	else
 	{
-		owner.CalculateFacingDirection();
+		owner.CalculateSpriteFacingDirection();
 	}
 
 	if (MouseManager::Instance().IsMouseLeftPressed())
 	{
 		owner.SetMoveDirection(MouseManager::Instance().MousePosition());
-		owner.CalculateFacingDirection();
+		owner.CalculateSpriteFacingDirection();
 	}
 
 }
 
-void AIWalkingState::Update(CharacterObject & owner, float dt)
+void PetWalkingState::Update(CharacterObject & owner, float dt)
 {
 	if (owner.GetPreviousFacing() != owner.GetFacingDirection())
 	{
@@ -97,7 +97,7 @@ void AIWalkingState::Update(CharacterObject & owner, float dt)
 	if (Vector2::Length(owner.DistanceToDestination()) < 5)
 	{
 		printf("Distance %f\n", Vector2::Length(owner.DistanceToDestination()));
-		owner.GetFSM()->ChangeState(AIStandingState::Instance());
+		owner.GetFSM()->ChangeState(PetStandingState::Instance());
 	}
 
 	else
@@ -106,31 +106,31 @@ void AIWalkingState::Update(CharacterObject & owner, float dt)
 	}
 }
 
-void AIWalkingState::Exit(CharacterObject & owner)
+void PetWalkingState::Exit(CharacterObject & owner)
 {
 	owner.GetAnimation().ClearFrames();
 }
 
-AISeekState* AISeekState::Instance()
+PetSeekState* PetSeekState::Instance()
 {
-	static AISeekState state;
+	static PetSeekState state;
 	return &state;
 }
 
-void AISeekState::Enter(CharacterObject& owner)
+void PetSeekState::Enter(CharacterObject& owner)
 {
 
 }
 
-void AISeekState::Input(CharacterObject& owner)
+void PetSeekState::Input(CharacterObject& owner)
 {
 }
 
-void AISeekState::Update(CharacterObject& owner, float dt)
+void PetSeekState::Update(CharacterObject& owner, float dt)
 {
 }
 
-void AISeekState::Exit(CharacterObject& owner)
+void PetSeekState::Exit(CharacterObject& owner)
 {
 }
 

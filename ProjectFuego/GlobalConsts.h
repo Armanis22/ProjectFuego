@@ -6,5 +6,5 @@ const int FULLSCREENWIDTH = 1080;
 const int FULLSCREENHEIGHT = 1920;
 const int SPRITEDIMENSION = 64;
 const float TIMETONEXTFRAME = .08f;
-const float MOVESPEED = 250;
-const float MOVEDIAG = MOVESPEED *.7071f;
+const float MAXMOVESPEED = 300;
+const float PLAYERACCELERATION = 700;

@@ -27,7 +27,7 @@ Pet::Pet(sf::Vector2f pos, TextureName texture) :
 	
 	m_facingDirection = FacingDirection::DOWN;
 	m_currentAction = ActionRow::WALKING;
-	m_StateMachine->SetCurrentState(AIStandingState::Instance());
+	m_StateMachine->SetCurrentState(PetStandingState::Instance());
 }
 
 

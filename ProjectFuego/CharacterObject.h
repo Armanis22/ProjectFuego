@@ -2,6 +2,8 @@
 #include "GameObject.h"
 #include "ObjectStateMachine.h"
 
+class Pet;
+
 enum class FacingDirection
 {
 	UP,
@@ -70,10 +72,11 @@ public:
 
 	// -bh
 	// Functions for some of the physics aspects
-	void SetAcceleration(float accel);
-	void ApplyDrag(float dt);
-	void LimitVelocity(float dt);
-	void CheckRangeToTarget(float dt);
+	void			SetAcceleration(float accel);
+	void			ApplyDrag(float dt);
+	void			LimitVelocity(float dt);
+	void			CheckRangeToTarget(float dt);
+	sf::Vector2f	GetVelocity() { return m_velocity; }
 
 
 	void SetPosition(sf::Vector2f newPos) {
@@ -81,44 +84,49 @@ public:
 		m_pos = m_sprite.getPosition();
 	}
 
-	std::unique_ptr<ObjectStateMachine>& GetFSM()			{ return m_StateMachine; }
+	std::unique_ptr<ObjectStateMachine>& GetFSM()		{ return m_StateMachine; }
 
-	virtual Animation& GetAnimation	()						{ return m_animation; }
-	void CreateAnimation			(FacingDirection direction, ActionRow row, ActionColumns column);
+	virtual Animation& GetAnimation	()					{ return m_animation; }
+	void			CreateAnimation	(FacingDirection direction, ActionRow row, ActionColumns column);
 
-	void WalkAnimation();
+	void			WalkAnimation();
 
-	void MoveSprite(float dt);
-	void SetMoveVector(float x, float y);
-	void SetMoveDirection(sf::Vector2f newPosition);
-	void CalculateFacingDirection();
-	sf::Vector2f CurrentPosition() { return m_sprite.getPosition(); }
-	sf::Vector2f GetDestination() { return m_moveDestination; }
-	sf::Vector2f DistanceToDestination() { return m_moveDestination - m_sprite.getPosition(); }
+	void			MoveSprite(float dt);
+	void			SetMoveVector(float x, float y);
+	void			SetMoveDirection(sf::Vector2f newPosition);
+	void			CalculateSpriteFacingDirection();
+	sf::Vector2f	CurrentPosition() { return m_sprite.getPosition(); }
+	sf::Vector2f	GetDestination() { return m_moveDestination; }
+	sf::Vector2f	DistanceToDestination() { return m_moveDestination - m_sprite.getPosition(); }
+
+	bool			CheckDestroyed() { return m_isDestroyed; }
+	void			Destroy() { m_isDestroyed = true; }
 
 protected:
 
 	std::unique_ptr<ObjectStateMachine> m_StateMachine;
-	Animation m_animation;
+	Animation							m_animation;
 
-	FacingDirection m_facingDirection;
-	FacingDirection m_previousFacingDirection;
-	ActionRow m_currentAction;
+	FacingDirection						m_facingDirection;
+	FacingDirection						m_previousFacingDirection;
+	ActionRow							m_currentAction;
 
-	sf::Vector2f m_moveDirection;
-	sf::Vector2f m_moveDestination;
+	sf::Vector2f						m_moveDirection;
+	sf::Vector2f						m_moveDestination;
 
 	//New members for steering behaviors
-	sf::Vector2f m_pos;
-	sf::Vector2f m_acceleration;
-	sf::Vector2f m_velocity;
-	sf::Vector2f m_heading;
-	sf::Vector2f m_sideVector;
+	sf::Vector2f						m_pos;
+	sf::Vector2f						m_acceleration;
+	sf::Vector2f						m_velocity;
+	sf::Vector2f						m_heading;
+	sf::Vector2f						m_sideVector;
 
-	float m_mass;
-	float m_maxSpeed;
-	float m_maxForce;
-	float m_maxTurnRate;
+	float								m_mass;
+	float								m_maxSpeed;
+	float								m_maxForce;
+	float								m_maxTurnRate;
+	
+	bool								m_isDestroyed;
 
 };
 

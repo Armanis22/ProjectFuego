@@ -3,13 +3,15 @@
 
 
 CharacterObject::CharacterObject(sf::Vector2f pos) :
-	GameObject::GameObject(pos), 
-	m_velocity(sf::Vector2f(0.f,0.f)), 
+	GameObject::GameObject(pos),
+	m_velocity(sf::Vector2f(0.f, 0.f)),
 	//Below are temporary, will need to be setup (maybe lua) as mass and such will depend on the entity
 	m_mass(10.0),
 	m_heading(sf::Vector2f(0.f, 0.f)),
 	m_maxForce(20.0),
-	m_maxTurnRate(10.0)
+	m_maxTurnRate(10.0),
+	m_isDestroyed(false),
+	m_pos(pos)
 {
 	m_sprite.setOrigin(32, 32);
 }
@@ -52,14 +54,15 @@ void CharacterObject::ApplyDrag(float dt)
 void CharacterObject::LimitVelocity(float dt)
 {
 	float _speed = Vector2::Length(m_velocity);
-	if (_speed <= .1)
+
+	if (_speed <= .00001)
 	{
-		return;
+		_speed = 0;
 	}
 
-	if (_speed > 250)
+	if (_speed > MAXMOVESPEED)
 	{
-		_speed = 250;
+		_speed = MAXMOVESPEED;
 	}
 
 	m_velocity = m_moveDirection * _speed;
@@ -91,7 +94,6 @@ void CharacterObject::WalkAnimation()
 void CharacterObject::MoveSprite(float dt)
 {
 	
-	//m_sprite.move({ m_moveDirection.x * MOVESPEED * dt, m_moveDirection.y * MOVESPEED * dt });
 	m_velocity += m_acceleration * dt;
 
 	LimitVelocity(dt);
@@ -114,7 +116,7 @@ void CharacterObject::SetMoveDirection(sf::Vector2f newPosition)
 
 }
 
-void CharacterObject::CalculateFacingDirection()
+void CharacterObject::CalculateSpriteFacingDirection()
 {
 	//printf("Normalized Direction: (%f,%f)\n", m_moveDirection.x, m_moveDirection.y);
 	if (m_moveDirection.x > abs(m_moveDirection.y))

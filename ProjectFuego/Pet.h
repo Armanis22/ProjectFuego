@@ -3,7 +3,7 @@
 #include <vector>
 #include "CharacterObject.h"
 #include "ObjectStateMachine.h"
-#include "AIOwnedStates.h"
+#include "PetOwnedStates.h"
 
 enum class Type
 {

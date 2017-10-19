@@ -19,23 +19,12 @@ void StandingState::Input(CharacterObject & owner)
 
 	if (MouseManager::Instance().IsMouseRightPressed())
 	{
-		owner.SetPosition(owner.CurrentPosition());
+		//owner.SetPosition(owner.CurrentPosition());
 		owner.SetMoveDirection(MouseManager::Instance().MousePosition());
-		owner.CalculateFacingDirection();
-		owner.SetAcceleration(700);
+		owner.CalculateSpriteFacingDirection();
+		owner.SetAcceleration(PLAYERACCELERATION);
 		owner.GetFSM()->ChangeState(WalkingState::Instance());
 	}
-
-	/*
-	------ Old WASD movement stuff
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) ||
-		sf::Keyboard::isKeyPressed(sf::Keyboard::S) ||
-		sf::Keyboard::isKeyPressed(sf::Keyboard::D) ||
-		sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-	{
-		owner.GetFSM()->ChangeState(WalkingState::Instance());
-	}*/
 }
 
 void StandingState::Update(CharacterObject & owner, float dt)
@@ -75,93 +64,28 @@ void WalkingState::Input(CharacterObject & owner)
 	}
 	else
 	{
-		//owner.SetMoveDirection(MouseManager::Instance().MousePosition());
-		owner.CalculateFacingDirection();
+		owner.CalculateSpriteFacingDirection();
 	}
 	if (MouseManager::Instance().IsMouseRightPressed())
 	{
 		
-		//owner.SetVelocity({ 1, 1 });
-		//owner.SetPosition(owner.CurrentPosition());
-
-
-		//owner.SetMoveDirection(MouseManager::Instance().MousePosition());
-		//owner.CalculateFacingDirection();
-
-		//owner.SetPosition(owner.CurrentPosition());
 		owner.SetMoveDirection(MouseManager::Instance().MousePosition());
-		owner.CalculateFacingDirection();
-		owner.SetAcceleration(700);
+		owner.CalculateSpriteFacingDirection();
+		owner.SetAcceleration(PLAYERACCELERATION);
 	}
-
-
-	/*
-	
-	
-	----- This is all for the old WASD movement
-	
-	if (!sf::Keyboard::isKeyPressed(sf::Keyboard::A) &&
-		!sf::Keyboard::isKeyPressed(sf::Keyboard::S) &&
-		!sf::Keyboard::isKeyPressed(sf::Keyboard::D) &&
-		!sf::Keyboard::isKeyPressed(sf::Keyboard::W)
-		)
-	{
-		owner.GetFSM()->ChangeState(StandingState::Instance());
-	}
-	switch (owner.GetFacingDirection())
-	{
-	case FacingDirection::RIGHT:
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-		{
-			owner.SetMoveVector(MOVEDIAG, -MOVEDIAG);
-		}
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-		{
-			owner.SetMoveVector(MOVEDIAG, MOVEDIAG);
-		}
-		else
-		{
-			owner.SetMoveVector(MOVESPEED, 0);
-		}
-		break;
-	case FacingDirection::LEFT:
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-		{
-			owner.SetMoveVector(-MOVEDIAG, -MOVEDIAG);
-		}
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-		{
-			owner.SetMoveVector(-MOVEDIAG, MOVEDIAG);
-		}
-		else
-		{
-			owner.SetMoveVector(-MOVESPEED, 0);
-		}
-		break;
-	case FacingDirection::UP:
-		owner.SetMoveVector(0, -MOVESPEED);
-		break;
-	case FacingDirection::DOWN:
-		owner.SetMoveVector(0, MOVESPEED);
-		break;
-
-	default:
-		owner.SetMoveVector(0, 0);
-		break;
-	}*/
 }
 
 void WalkingState::Update(CharacterObject & owner, float dt)
 {	
 	//owner.ApplyDrag(dt);
 	owner.CheckRangeToTarget(dt);
-	owner.LimitVelocity(dt);
+	//owner.LimitVelocity(dt);
 	if (owner.GetPreviousFacing() != owner.GetFacingDirection())
 	{
 		owner.GetAnimation().ClearFrames();
 	}
 	owner.WalkAnimation();
-	if (Vector2::Length(owner.DistanceToDestination()) < 5)
+	if (Vector2::Length(owner.DistanceToDestination()) < 2)
 	{
 		owner.GetFSM()->ChangeState(StandingState::Instance());
 	}

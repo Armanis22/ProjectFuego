@@ -43,9 +43,6 @@
     <ClCompile Include="Pet.cpp">
       <Filter>Source Files\Game Objects</Filter>
     </ClCompile>
-    <ClCompile Include="AIOwnedStates.cpp">
-      <Filter>Source Files\Object States</Filter>
-    </ClCompile>
     <ClCompile Include="MouseManager.cpp">
       <Filter>Source Files\Resource Management</Filter>
     </ClCompile>
@@ -57,6 +54,9 @@
     </ClCompile>
     <ClCompile Include="Vehicle.cpp">
       <Filter>Source Files\Game Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="PetOwnedStates.cpp">
+      <Filter>Source Files\Object States</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -136,14 +136,14 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="resource.h" />
-    <ClInclude Include="AIOwnedStates.h">
-      <Filter>Header Files\Object States</Filter>
-    </ClInclude>
     <ClInclude Include="SteeringBehaviors.h">
       <Filter>Header Files\AI</Filter>
     </ClInclude>
     <ClInclude Include="Vehicle.h">
       <Filter>Header Files\Game Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="PetOwnedStates.h">
+      <Filter>Header Files\Object States</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

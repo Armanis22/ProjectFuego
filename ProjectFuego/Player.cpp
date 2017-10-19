@@ -30,22 +30,11 @@ void Player::Update(float dt)
 void Player::Input()
 {
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::F))
 	{
-		SetFacingDirection(FacingDirection::RIGHT);
+		//AddObject(std::make_shared<Pet>(sf::Vector2f(300, 300), TextureName::SKELETON));;
 	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-	{
-		SetFacingDirection(FacingDirection::LEFT);
-	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-	{
-		SetFacingDirection(FacingDirection::DOWN);
-	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-	{
-		SetFacingDirection(FacingDirection::UP);
-	}
+	
 	GetFSM()->Input();
 }
 
