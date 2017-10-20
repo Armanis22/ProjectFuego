@@ -18,6 +18,10 @@ public:
 	virtual void	Update	(float dt) = 0;
 	virtual void	Draw	(sf::RenderWindow* window);
 	float	GetYPosition() { return m_sprite.getPosition().y; }
+	void SetYPosition(int newY)
+	{
+		m_sprite.setPosition(m_sprite.getPosition().x, newY);
+	}
 
 protected:
 	sf::RectangleShape m_sprite;

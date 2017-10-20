@@ -27,6 +27,8 @@ public:
 	void PopState();
 	void ChangeState(std::unique_ptr<State::Game_State> state);
 
+	void QuickSort(int left, int right);
+
 private:
 	std::vector<std::shared_ptr<GameObject>> m_gameObjects;
 	std::stack<std::unique_ptr<State::Game_State>> m_states;
