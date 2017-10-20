@@ -23,6 +23,7 @@ Pet::Pet(sf::Vector2f pos, TextureName texture) :
 
 	m_sprite.setSize({ 64,64 });
 	m_sprite.setScale(2, 2);
+	m_sprite.setOrigin(32, 32);
 	//m_sprite.setTextureRect(sf::IntRect(64 * 0, 64 * 2, 64, 64));
 	
 	m_facingDirection = FacingDirection::DOWN;

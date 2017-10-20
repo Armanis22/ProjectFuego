@@ -17,6 +17,7 @@ public:
 
 	virtual void	Update	(float dt) = 0;
 	virtual void	Draw	(sf::RenderWindow* window);
+	float	GetYPosition() { return m_sprite.getPosition().y; }
 
 protected:
 	sf::RectangleShape m_sprite;

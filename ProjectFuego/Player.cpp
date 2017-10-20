@@ -4,7 +4,7 @@
 
 Player::Player(sf::Vector2f pos, Game* game) :
 	CharacterObject::CharacterObject(pos, game),
-	m_petSpawnCooldown(2)
+	m_petSpawnCooldown(PETSPAWNCOOLDOWN)
 {
 	m_StateMachine = std::make_unique<ObjectStateMachine>(*this);
 	m_sprite.setTexture(&ResourceHolder::Instance().getTexture(TextureName::CHARACTERONE));
@@ -32,7 +32,7 @@ void Player::Update(float dt)
 void Player::Input()
 {
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::F) && m_petSpawnCooldown >= 2)
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::F) && m_petSpawnCooldown >= PETSPAWNCOOLDOWN)
 	{
 		//Game::Instance()->AddObject(std::make_shared<Pet>(sf::Vector2f(300, 300), TextureName::SKELETON));
 		AddPet(std::make_shared<Pet>(sf::Vector2f(100,100), TextureName::SKELETON));

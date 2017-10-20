@@ -31,7 +31,6 @@ enum class ActionColumns
 	DYING = 5
 };
 
-
 class CharacterObject :
 	public GameObject
 {
@@ -83,6 +82,9 @@ public:
 		m_pos = m_sprite.getPosition();
 	}
 
+	// operator overloading for sorting
+	//bool comparePtrs(GameObject*lhs, GameObject*rhs) { return (*lhs) < (*rhs); }
+
 	std::unique_ptr<ObjectStateMachine>& GetFSM()		{ return m_StateMachine; }
 
 	virtual Animation& GetAnimation	()					{ return m_animation; }
@@ -94,7 +96,7 @@ public:
 	void			SetMoveVector(float x, float y);
 	void			SetMoveDirection(sf::Vector2f newPosition);
 	void			CalculateSpriteFacingDirection();
-	sf::Vector2f	CurrentPosition() { return m_sprite.getPosition(); }
+	sf::Vector2f	CurrentPosition() { return m_pos; }
 	sf::Vector2f	GetDestination() { return m_moveDestination; }
 	sf::Vector2f	DistanceToDestination() { return m_moveDestination - m_sprite.getPosition(); }
 
