@@ -9,4 +9,4 @@ const float TIMETONEXTFRAME = .08f;
 const float MAXMOVESPEED = 300;
 const float PLAYERACCELERATION = 700;
 
-const float PETSPAWNCOOLDOWN = 1.2;
+const float PETSPAWNCOOLDOWN = 0.2;

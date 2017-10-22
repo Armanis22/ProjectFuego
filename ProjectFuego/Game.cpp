@@ -18,20 +18,20 @@ void Game::Update(float dt)
 	m_states.top()->Update(dt);
 	for (size_t i = 0; i < m_gameObjects.size(); ++i)
 	{
-		/*if ((i+1) < m_gameObjects.size() &&
+		if ((i+1) < m_gameObjects.size() &&
 			m_gameObjects[i]->GetYPosition() > m_gameObjects[i + 1]->GetYPosition())
 		{
 			auto _temp = m_gameObjects[i];
 			m_gameObjects[i] = m_gameObjects[i + 1];
 			m_gameObjects[i + 1] = _temp;
-		}*/
+		}
 		m_gameObjects[i]->Update(dt);
 	}
 
-	if (m_gameObjects.size() > 2)
+	/*if (m_gameObjects.size() > 2)
 	{
 		QuickSort(0, m_gameObjects.size());
-	}
+	}*/
 	
 }
 
@@ -73,7 +73,6 @@ void Game::QuickSort(int left, int right)
 	//	pivot point
 	int i = left;
 	int j = right;
-	int temp;
 
 	int index = (left + right) / 2;
 	int bleck = m_gameObjects[i]->GetYPosition();
@@ -97,12 +96,11 @@ void Game::QuickSort(int left, int right)
 
 		if (i <= j)
 		{
-		temp = m_gameObjects[i]->GetYPosition();
-		m_gameObjects[i]->SetYPosition(j);
-		m_gameObjects[j]->SetYPosition(temp);
-		i++;
-		j--;
-
+			auto _temp = m_gameObjects[i];
+			m_gameObjects[i] = m_gameObjects[i + 1];
+			m_gameObjects[i + 1] = _temp;
+			i++;
+			j--;
 		}
 
 	}

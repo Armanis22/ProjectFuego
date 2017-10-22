@@ -60,19 +60,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Animation.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Food.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GlobalConsts.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Random.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Stat.h">
@@ -132,9 +123,6 @@
     <ClInclude Include="MouseManager.h">
       <Filter>Header Files\Recource Management</Filter>
     </ClInclude>
-    <ClInclude Include="Vector2.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="resource.h" />
     <ClInclude Include="SteeringBehaviors.h">
       <Filter>Header Files\AI</Filter>
@@ -144,6 +132,18 @@
     </ClInclude>
     <ClInclude Include="PetOwnedStates.h">
       <Filter>Header Files\Object States</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalConsts.h">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Random.h">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2.h">
+      <Filter>Header Files\Utilities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -189,6 +189,9 @@
     </Filter>
     <Filter Include="Source Files\AI">
       <UniqueIdentifier>{af04f3d6-4bc6-4dc0-8c2d-5dc1bcd2bf54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Utilities">
+      <UniqueIdentifier>{677e13b1-84bc-4782-a4ae-a1c7400d1288}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
