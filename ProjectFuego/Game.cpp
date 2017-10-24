@@ -30,7 +30,7 @@ void Game::Update(float dt)
 
 	/*if (m_gameObjects.size() > 2)
 	{
-		QuickSort(0, m_gameObjects.size());
+		QuickSort(0, m_gameObjects.size() - 1);
 	}*/
 	
 }
@@ -73,9 +73,8 @@ void Game::QuickSort(int left, int right)
 	//	pivot point
 	int i = left;
 	int j = right;
-
+	
 	int index = (left + right) / 2;
-	int bleck = m_gameObjects[i]->GetYPosition();
 	int pivot = m_gameObjects[index]->GetYPosition();
 
 	// partition
@@ -89,30 +88,32 @@ void Game::QuickSort(int left, int right)
 			i++;
 		}
 
-		while (m_gameObjects[j]->GetYPosition() > pivot)
+		while (m_gameObjects[j]->GetYPosition() > pivot && (j > 0))
 		{
+			printf("%d\n", j);
 			j--;
+			
 		}
 
 		if (i <= j)
 		{
 			auto _temp = m_gameObjects[i];
-			m_gameObjects[i] = m_gameObjects[i + 1];
-			m_gameObjects[i + 1] = _temp;
+			m_gameObjects[i] = m_gameObjects[j];
+			m_gameObjects[j] = _temp;
 			i++;
 			j--;
 		}
 
 	}
 	//recursively call itself 
-	if (left < j)
+	/*if (left < j)
 	{
 		QuickSort(left, j);
 	}
 	if (i < right)
 	{
 		QuickSort(i, right);
-	}
+	}*/
 
 
 }
