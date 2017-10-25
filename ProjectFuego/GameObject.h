@@ -20,7 +20,7 @@ public:
 	float	GetYPosition() { return m_sprite.getPosition().y; }
 	void SetYPosition(int newY)
 	{
-		m_sprite.setPosition(m_sprite.getPosition().x, newY);
+		m_sprite.setPosition(m_sprite.getPosition().x, static_cast<float>(newY));
 	}
 
 protected:

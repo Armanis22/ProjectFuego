@@ -46,7 +46,6 @@ void Game::Draw(sf::RenderWindow * window)
 
 void Game::AddObject(std::shared_ptr<GameObject> object)
 {
-	puts("called");
 	m_gameObjects.emplace_back(object);
 }
 
@@ -75,7 +74,7 @@ void Game::QuickSort(int left, int right)
 	int j = right;
 	
 	int index = (left + right) / 2;
-	int pivot = m_gameObjects[index]->GetYPosition();
+	float pivot = m_gameObjects[index]->GetYPosition();
 
 	// partition
 	// as long as i is less than j then

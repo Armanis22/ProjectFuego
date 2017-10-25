@@ -18,6 +18,7 @@ Player::Player(sf::Vector2f pos, Game* game) :
 	m_currentAction = ActionRow::WALKING;
 	m_StateMachine->SetCurrentState(StandingState::Instance());
 
+	m_moveDirection = sf::Vector2f(0, 1);
 }
 
 void Player::Update(float dt)
@@ -27,6 +28,8 @@ void Player::Update(float dt)
 	m_sprite.setTextureRect(m_animation.getFrame(dt));
 	SetPreviousFacing();
 	m_petSpawnCooldown += dt;
+	m_stateChangeCooldown += dt;
+	printf("(%f,%f)\n", m_moveDirection.x, m_moveDirection.y);
 }
 
 void Player::Input()
@@ -62,7 +65,6 @@ void Player::AddPet(std::shared_ptr<Pet> pet)
 	default:
 		break;
 	}
-	//puts("called");
 	pet->SetPosition(_spawnPosition);
 	m_pGameManager->AddObject(pet);
 	//m_petList.emplace_back(pet);

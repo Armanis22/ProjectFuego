@@ -85,23 +85,27 @@ public:
 	// operator overloading for sorting
 	//bool comparePtrs(GameObject*lhs, GameObject*rhs) { return (*lhs) < (*rhs); }
 
-	std::unique_ptr<ObjectStateMachine>& GetFSM()		{ return m_StateMachine; }
+	std::unique_ptr<ObjectStateMachine>& GetFSM		()		{ return m_StateMachine; }
 
-	virtual Animation& GetAnimation	()					{ return m_animation; }
-	void			CreateAnimation	(FacingDirection direction, ActionRow row, ActionColumns column);
+	virtual Animation& GetAnimation					()					{ return m_animation; }
+	void			CreateAnimation					(FacingDirection direction, ActionRow row, ActionColumns column);
 
 	void			WalkAnimation();
 
-	void			MoveSprite(float dt);
-	void			SetMoveVector(float x, float y);
-	void			SetMoveDirection(sf::Vector2f newPosition);
-	void			CalculateSpriteFacingDirection();
-	sf::Vector2f	CurrentPosition() { return m_pos; }
-	sf::Vector2f	GetDestination() { return m_moveDestination; }
-	sf::Vector2f	DistanceToDestination() { return m_moveDestination - m_sprite.getPosition(); }
+	void			MoveSprite						(float dt);
+	void			SetMoveVector					(float x, float y);
+	void			SetMoveDirection				(sf::Vector2f newPosition);
+	void			CalculateSpriteFacingDirection	();
+	sf::Vector2f	CurrentPosition					() { return m_pos; }
+	sf::Vector2f	GetDestination					() { return m_moveDestination; }
+	sf::Vector2f	DistanceToDestination			() { return m_moveDestination - m_sprite.getPosition(); }
 
-	bool			CheckDestroyed() { return m_isDestroyed; }
-	void			Destroy() { m_isDestroyed = true; }
+	bool			CheckDestroyed					() { return m_isDestroyed; }
+	void			Destroy							() { m_isDestroyed = true; }
+
+	void			ResetStateCooldown				() { m_stateChangeCooldown = 0; }
+	float			GetStateCooldown				() { return m_stateChangeCooldown; }
+
 
 protected:
 
@@ -128,7 +132,9 @@ protected:
 	float								m_maxTurnRate;
 	
 	bool								m_isDestroyed;
-	Game* m_pGameManager;
+	Game*								m_pGameManager;
+
+	float								m_stateChangeCooldown;
 
 };
 

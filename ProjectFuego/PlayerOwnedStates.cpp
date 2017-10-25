@@ -12,6 +12,7 @@ void StandingState::Enter(CharacterObject & owner)
 {
 	owner.GetAnimation().addFrame({ 0,64 * static_cast<int>(owner.GetFacingDirection()),64,64 }, .1f);
 	owner.SetVelocity({ 0, 0});
+	owner.ResetStateCooldown();
 }
 
 void StandingState::Input(CharacterObject & owner)
@@ -85,7 +86,7 @@ void WalkingState::Update(CharacterObject & owner, float dt)
 		owner.GetAnimation().ClearFrames();
 	}
 	owner.WalkAnimation();
-	if (Vector2::Length(owner.DistanceToDestination()) < 2)
+	if (Vector2::Length(owner.DistanceToDestination()) < 1)
 	{
 		owner.GetFSM()->ChangeState(StandingState::Instance());
 	}

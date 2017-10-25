@@ -16,6 +16,7 @@ public:
 	void Input();
 	void AddPet(std::shared_ptr<Pet> pet);
 
+
 private:
 	std::vector<std::shared_ptr<Pet>> m_petList;
 	float m_petSpawnCooldown;

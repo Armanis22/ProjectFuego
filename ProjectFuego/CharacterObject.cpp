@@ -11,7 +11,8 @@ CharacterObject::CharacterObject(sf::Vector2f pos) :
 	m_maxForce(20.0),
 	m_maxTurnRate(10.0),
 	m_isDestroyed(false),
-	m_pos(pos)
+	m_pos(pos),
+	m_stateChangeCooldown(.0f)
 {
 	m_sprite.setOrigin(32, 32);
 }
@@ -71,7 +72,7 @@ void CharacterObject::LimitVelocity(float dt)
 {
 	float _speed = Vector2::Length(m_velocity);
 
-	if (_speed <= .00001)
+	if (_speed <= .001)
 	{
 		_speed = 0;
 	}
@@ -86,7 +87,7 @@ void CharacterObject::LimitVelocity(float dt)
 
 void CharacterObject::CheckRangeToTarget(float dt)
 {
-	if ( Vector2::LengthSq(m_moveDestination - m_pos) < 1500)
+	if ( Vector2::LengthSq(m_moveDestination - m_pos) < 1200)
 	{
 		ApplyDrag(dt);
 		SetAcceleration(0);
