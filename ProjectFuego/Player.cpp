@@ -25,11 +25,19 @@ void Player::Update(float dt)
 {
 	Input();
 	GetFSM()->Update(dt);
+	if(m_petList.size() > 0)
+	{
+		for (size_t i = 0; i < m_petList.size(); i++)
+		{
+			//printf("%f\n", m_pos.x);
+
+			m_petList[i]->SetPlayerPosition(m_pos);
+		}
+	}
 	m_sprite.setTextureRect(m_animation.getFrame(dt));
 	SetPreviousFacing();
 	m_petSpawnCooldown += dt;
 	m_stateChangeCooldown += dt;
-	printf("(%f,%f)\n", m_moveDirection.x, m_moveDirection.y);
 }
 
 void Player::Input()
@@ -38,7 +46,7 @@ void Player::Input()
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::F) && m_petSpawnCooldown >= PETSPAWNCOOLDOWN)
 	{
 		//Game::Instance()->AddObject(std::make_shared<Pet>(sf::Vector2f(300, 300), TextureName::SKELETON));
-		AddPet(std::make_shared<Pet>(sf::Vector2f(100,100), TextureName::SKELETON));
+		AddPet(std::make_shared<Pet>(sf::Vector2f(100,100), m_pGameManager, this));
 		m_petSpawnCooldown = 0;
 	}
 	
@@ -67,7 +75,7 @@ void Player::AddPet(std::shared_ptr<Pet> pet)
 	}
 	pet->SetPosition(_spawnPosition);
 	m_pGameManager->AddObject(pet);
-	//m_petList.emplace_back(pet);
+	m_petList.emplace_back(pet);
 		
 }
 

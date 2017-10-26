@@ -34,3 +34,14 @@ public:
 	virtual void Update(CharacterObject& owner, float dt);
 	virtual void Exit(CharacterObject& owner);
 };
+
+class PetFollowState : public ObjectState
+{
+public:
+	static PetFollowState* Instance();
+
+	virtual void Enter(CharacterObject& owner);
+	virtual void Input(CharacterObject& owner);
+	virtual void Update(CharacterObject& owner, float dt);
+	virtual void Exit(CharacterObject& owner);
+};

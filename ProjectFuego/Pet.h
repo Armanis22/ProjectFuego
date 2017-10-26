@@ -5,6 +5,8 @@
 #include "ObjectStateMachine.h"
 #include "PetOwnedStates.h"
 
+class Player;
+
 enum class Type
 {
 	NORMAL, //base monster, regular attributes (starter)
@@ -19,10 +21,10 @@ enum class Type
 class Pet : public CharacterObject
 {
 public:
-	Pet(sf::Vector2f pos, TextureName texture);
+	Pet(sf::Vector2f pos, Game* game, Player* player);
 	~Pet();
 
-	void Update(float dt);
+	virtual void Update(float dt);
 	void Input();
 
 	void RollBaseStats(); //loop for stat init
@@ -37,6 +39,11 @@ public:
 	bool CanEvolve() { return m_evolveState; }
 
 	void ListStats();
+	
+	// definitions for pet stuff from CharacterObject
+	void SetPlayerPosition(sf::Vector2f pos);
+	sf::Vector2f GetPlayerPosition();
+	float DistanceToPlayer() override;
 
 private:
 	std::vector<Stat*> m_attributes;
@@ -44,5 +51,9 @@ private:
 
 	Stat* m_hunger;
 	bool m_evolveState;
+
+	Player* m_pPlayer;
+	sf::Vector2f m_playerPosition;
+	sf::Vector2f m_mainTarget;
 };
 

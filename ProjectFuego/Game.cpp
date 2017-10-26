@@ -117,3 +117,17 @@ void Game::QuickSort(int left, int right)
 
 }
 
+//std::shared_ptr<Player> Game::FindPlayer()
+//{
+//	for (size_t i = 0; i < m_gameObjects.size(); ++i)
+//	{
+//		auto temp = m_gameObjects[i];
+//		
+//		/*if (dynamic_cast<Player*>(m_gameObjects[i]))
+//		{
+//
+//		}*/
+//	}
+//	return std::shared_ptr<Player>();
+//}
+

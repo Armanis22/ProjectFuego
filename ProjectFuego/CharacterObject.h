@@ -37,7 +37,8 @@ class CharacterObject :
 public:
 	CharacterObject(sf::Vector2f pos);
 	CharacterObject(sf::Vector2f pos, Game* game);
-	void Update(float dt);
+
+	virtual void Update(float dt);
 
 	FacingDirection GetFacingDirection()					{ return m_facingDirection; }
 	void			SetFacingDirection(FacingDirection dir) { m_facingDirection = dir; }
@@ -105,6 +106,11 @@ public:
 
 	void			ResetStateCooldown				() { m_stateChangeCooldown = 0; }
 	float			GetStateCooldown				() { return m_stateChangeCooldown; }
+
+	// declarations for Pet classes
+	virtual void SetPlayerPosition(sf::Vector2f pos) {};
+	virtual sf::Vector2f GetPlayerPosition() { return sf::Vector2f(0, 0); }
+	virtual float DistanceToPlayer() { return 0.0f; }
 
 
 protected:

@@ -4,8 +4,9 @@
 
 
 
-Pet::Pet(sf::Vector2f pos, TextureName texture) :
-	CharacterObject::CharacterObject(pos),
+Pet::Pet(sf::Vector2f pos, Game* game, Player* player) :
+	CharacterObject::CharacterObject(pos, game),
+	m_pPlayer(player),
 	m_evolveState(false), 
 	m_hunger(0)
 {
@@ -18,7 +19,7 @@ Pet::Pet(sf::Vector2f pos, TextureName texture) :
 
 	// This is mostly Temp to just get a pet in thuurr
 
-	m_sprite.setTexture(&ResourceHolder::Instance().getTexture(texture));
+	m_sprite.setTexture(&ResourceHolder::Instance().getTexture(TextureName::SKELETON));
 	m_sprite.setPosition(pos);
 
 	m_sprite.setSize({ 64,64 });
@@ -29,6 +30,8 @@ Pet::Pet(sf::Vector2f pos, TextureName texture) :
 	m_facingDirection = FacingDirection::DOWN;
 	m_currentAction = ActionRow::WALKING;
 	m_StateMachine->SetCurrentState(PetStandingState::Instance());
+
+	//m_pGameManager->
 }
 
 
@@ -47,8 +50,8 @@ void Pet::Update(float dt)
 {
 	Input(); 
 	GetFSM()->Update(dt);
-	m_sprite.setTextureRect(m_animation.getFrame(dt));
 	SetPreviousFacing();
+	m_sprite.setTextureRect(m_animation.getFrame(dt));
 }
 
 void Pet::Input()
@@ -188,4 +191,21 @@ void Pet::ListStats()
 	}
 
 	std::cout << m_hunger->GetID() << ": " << m_hunger->GetCurrent() << "/" << m_hunger->GetMax() << "\n" << std::endl;
+}
+
+void Pet::SetPlayerPosition(sf::Vector2f pos)
+{
+	m_playerPosition = pos;
+	m_moveDestination = pos;
+}
+
+sf::Vector2f Pet::GetPlayerPosition()
+{
+	return m_playerPosition;
+}
+
+float Pet::DistanceToPlayer()
+{
+	sf::Vector2f distance = m_playerPosition - m_pos;
+	return Vector2::Length(distance);
 }

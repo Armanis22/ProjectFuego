@@ -33,6 +33,7 @@ CharacterObject::CharacterObject(sf::Vector2f pos, Game* game) :
 
 }
 
+
 void CharacterObject::Update(float dt)
 {
 	/*m_velocity += m_acceleration * dt;
