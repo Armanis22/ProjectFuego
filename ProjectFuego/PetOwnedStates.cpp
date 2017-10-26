@@ -17,7 +17,9 @@ PetStandingState* PetStandingState::Instance()
 
 void PetStandingState::Enter(CharacterObject & owner)
 {
+	printf("Entered Pet Standing\n");
 	owner.GetAnimation().addFrame({ 0,64 * static_cast<int>(owner.GetFacingDirection()),64,64 }, .1f);
+	owner.SetVelocity({ 0,0 });
 
 }
 
@@ -163,13 +165,15 @@ void PetFollowState::Input(CharacterObject & owner)
 void PetFollowState::Update(CharacterObject & owner, float dt)
 {
 	owner.CheckRangeToTarget(dt);
-	if (owner.GetPreviousFacing() != owner.GetFacingDirection())
-	{
-		owner.GetAnimation().ClearFrames();
-	}
 	owner.SetMoveDirection(owner.GetPlayerPosition());
 	owner.CalculateSpriteFacingDirection();
 	owner.SetAcceleration(PLAYERACCELERATION);
+	if (owner.GetPreviousFacing() != owner.GetFacingDirection())
+	{
+		owner.GetAnimation().ClearFrames();
+		owner.GetAnimation().addFrame({ 0,64 * static_cast<int>(owner.GetFacingDirection()),64,64 }, .1f);
+
+	}
 	owner.WalkAnimation();
 	if (Vector2::Length(owner.DistanceToDestination()) < 100)
 	{
@@ -183,4 +187,5 @@ void PetFollowState::Update(CharacterObject & owner, float dt)
 
 void PetFollowState::Exit(CharacterObject & owner)
 {
+	owner.GetAnimation().ClearFrames();
 }
